@@ -4,6 +4,7 @@
 
 // User-defined Headers
 #include "Core\shader_loader.h"
+#include "Core\models.h"
 
 // External Headers
 #include "glew.h"
@@ -12,6 +13,7 @@
 // System Headers
 #include <iostream>
 
+Models::ModelManager* model_manager;
 GLuint program;
 
 void renderScene(void)
@@ -28,9 +30,18 @@ void renderScene(void)
 	glutSwapBuffers();
 }
 
+void closeCallback()
+{
+	std::cout << "GLUT:\t Finished" << std::endl;
+	glutLeaveMainLoop();
+}
+
 void Init()
 {
 	glEnable(GL_DEPTH_TEST);
+
+	model_manager = new Models::ModelManager();
+	model_manager->CreateTriangleModel("test_triangle");
 
 	// Load and compile shaders from file
 	Core::ShaderLoader shader_loader;
@@ -51,6 +62,7 @@ int main(int argc, char **argv)
 
 	// Register callbacks
 	glutDisplayFunc(renderScene);
+	glutCloseFunc(closeCallback);
 	glutMainLoop();
 	glDeleteProgram(program);
 	return 0;

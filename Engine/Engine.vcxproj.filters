@@ -5,6 +5,9 @@
     <ClCompile Include="Source\Core\shader_loader.cpp">
       <Filter>Core</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Core\models.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Core">
@@ -16,6 +19,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Core\shader_loader.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\vertex_format.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\models.h">
       <Filter>Core</Filter>
     </ClInclude>
   </ItemGroup>
