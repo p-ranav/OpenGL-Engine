@@ -19,12 +19,12 @@ GLuint program;
 void renderScene(void)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glClearColor(0.0, 0.0, 1.0, 1.0);
+	glClearColor(0.0, 0.0, 0.0, 1.0);
 
-	//use the created program
+	// Use the created program
 	glUseProgram(program);
 
-	//draw 3 vertices as triangles
+	// Draw 3 vertices as triangles
 	glDrawArrays(GL_TRIANGLES, 0, 3);
 
 	glutSwapBuffers();

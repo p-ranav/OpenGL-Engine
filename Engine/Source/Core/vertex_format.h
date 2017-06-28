@@ -16,14 +16,19 @@ struct VertexFormat
 {
 	/**
 	 * Vertex Format Constructor
-	 * @param position Position vector of vertex
+	 * @param vertex_position Position vector of vertex
+	 * @param vertex_color Color of the vertex
 	 */
-	VertexFormat(const glm::vec3 &position) {
-		vertex_position = position;
+	VertexFormat(const glm::vec3& vertex_position, const glm::vec4& vertex_color) {
+		position = vertex_position;
+		color = vertex_color;
 	}
 
 	/* Vertex Position in 3D space */
-	glm::vec3 vertex_position;
+	glm::vec3 position;
+
+	/* Vertex Color */
+	glm::vec4 color;
 };
 
 #endif

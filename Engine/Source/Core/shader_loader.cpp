@@ -64,6 +64,7 @@ GLuint Core::ShaderLoader::CreateShader(GLenum shader_type, std::string source, 
 	return shader;
 }
 
+// Create shader program, attach provided shaders and return program
 GLuint Core::ShaderLoader::CreateProgram(char* vertex_shader_filename, char* fragment_shader_filename)
 {
 	// Read the shader files and save the code
