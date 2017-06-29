@@ -1,7 +1,3 @@
-/*
-* Author: Pranav Srinivas Kumar
-*/
-
 #pragma once
 namespace Core {
 

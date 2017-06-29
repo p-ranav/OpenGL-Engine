@@ -1,7 +1,5 @@
-/*
- * Author: Pranav Srinivas Kumar
- */
 #pragma once
+
 // External Headers
 #include "glew.h"
 #include "freeglut.h"

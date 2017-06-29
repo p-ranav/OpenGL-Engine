@@ -1,6 +1,3 @@
-/*
-* Author: Pranav Srinivas Kumar
-*/
 #include "init_glut.h"
 
 // Define Static Variables in InitGLUT class

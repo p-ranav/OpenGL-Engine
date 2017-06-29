@@ -21,10 +21,13 @@
   <ItemGroup>
     <ClCompile Include="Source\Core\Init\init_glew.cpp" />
     <ClCompile Include="Source\Core\Init\init_glut.cpp" />
-    <ClCompile Include="Source\Core\models.cpp" />
     <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\Managers\model_manager.cpp" />
     <ClCompile Include="Source\Managers\scene_manager.cpp" />
     <ClCompile Include="Source\Managers\shader_manager.cpp" />
+    <ClCompile Include="Source\Rendering\Models\model.cpp" />
+    <ClCompile Include="Source\Rendering\Models\quad.cpp" />
+    <ClCompile Include="Source\Rendering\Models\triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Core\Init\context_info.h" />
@@ -33,10 +36,14 @@
     <ClInclude Include="Source\Core\Init\init_glut.h" />
     <ClInclude Include="Source\Core\Init\listener.h" />
     <ClInclude Include="Source\Core\Init\window_info.h" />
-    <ClInclude Include="Source\Core\models.h" />
-    <ClInclude Include="Source\Core\vertex_format.h" />
+    <ClInclude Include="Source\Managers\model_manager.h" />
     <ClInclude Include="Source\Managers\scene_manager.h" />
     <ClInclude Include="Source\Managers\shader_manager.h" />
+    <ClInclude Include="Source\Rendering\Models\model.h" />
+    <ClInclude Include="Source\Rendering\Models\quad.h" />
+    <ClInclude Include="Source\Rendering\Models\triangle.h" />
+    <ClInclude Include="Source\Rendering\object.h" />
+    <ClInclude Include="Source\Rendering\vertex_format.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Source\Shaders\fragment_shader.glsl" />

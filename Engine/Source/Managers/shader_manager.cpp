@@ -1,7 +1,3 @@
-/*
- * Author: Pranav Srinivas Kumar
- */
-
 // User-defined Headers
 #include "shader_manager.h"
 

@@ -1,6 +1,3 @@
-/*
-* Author: Pranav Srinivas Kumar
-*/
 #pragma once
 
 // External Headers

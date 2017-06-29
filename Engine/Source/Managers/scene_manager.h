@@ -1,12 +1,10 @@
-/*
-* Author: Pranav Srinivas Kumar
-*/
-
 #pragma once
 
 // User-defined Headers
 #include "shader_manager.h"
+#include "model_manager.h"
 #include "../Core/Init/listener.h"
+
 namespace Managers
 {
 	/**
@@ -32,5 +30,8 @@ namespace Managers
 
 		/* SceneManager contains a shader manager */
 		Managers::ShaderManager* shader_manager_;
+
+		/*  */
+		Managers::ModelManager* model_manager_;
 	};
 }

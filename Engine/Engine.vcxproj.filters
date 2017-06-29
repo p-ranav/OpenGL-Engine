@@ -2,9 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="Source\main.cpp" />
-    <ClCompile Include="Source\Core\models.cpp">
-      <Filter>Core</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Managers\shader_manager.cpp">
       <Filter>Managers</Filter>
     </ClCompile>
@@ -16,6 +13,18 @@
     </ClCompile>
     <ClCompile Include="Source\Managers\scene_manager.cpp">
       <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Rendering\Models\model.cpp">
+      <Filter>Rendering\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Rendering\Models\triangle.cpp">
+      <Filter>Rendering\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Managers\model_manager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Rendering\Models\quad.cpp">
+      <Filter>Rendering\Models</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -31,14 +40,14 @@
     <Filter Include="Core\Init">
       <UniqueIdentifier>{3fe0dacf-375f-4366-b353-d142c90fa07a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Rendering">
+      <UniqueIdentifier>{77a8b619-2b1d-46a2-b384-b2eb9c48eb77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rendering\Models">
+      <UniqueIdentifier>{d0367dd4-3b56-496b-8908-28123040743d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Core\vertex_format.h">
-      <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Core\models.h">
-      <Filter>Core</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Managers\shader_manager.h">
       <Filter>Managers</Filter>
     </ClInclude>
@@ -62,6 +71,24 @@
     </ClInclude>
     <ClInclude Include="Source\Managers\scene_manager.h">
       <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Rendering\vertex_format.h">
+      <Filter>Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Rendering\object.h">
+      <Filter>Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Rendering\Models\model.h">
+      <Filter>Rendering\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Rendering\Models\triangle.h">
+      <Filter>Rendering\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Managers\model_manager.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Rendering\Models\quad.h">
+      <Filter>Rendering\Models</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
