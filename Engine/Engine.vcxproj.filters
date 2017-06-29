@@ -2,11 +2,11 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="Source\main.cpp" />
-    <ClCompile Include="Source\Core\shader_loader.cpp">
-      <Filter>Core</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Core\models.cpp">
       <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Managers\shader_manager.cpp">
+      <Filter>Managers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -16,16 +16,19 @@
     <Filter Include="Shaders">
       <UniqueIdentifier>{061c27af-8516-4895-9b93-c858c29197bc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Managers">
+      <UniqueIdentifier>{e1fd3b82-6813-4ddc-a61a-cece4af3caed}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Core\shader_loader.h">
-      <Filter>Core</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Core\vertex_format.h">
       <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="Source\Core\models.h">
       <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Managers\shader_manager.h">
+      <Filter>Managers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

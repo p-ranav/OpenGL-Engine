@@ -20,13 +20,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Core\models.cpp" />
-    <ClCompile Include="Source\Core\shader_loader.cpp" />
     <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\Managers\shader_manager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Core\models.h" />
-    <ClInclude Include="Source\Core\shader_loader.h" />
     <ClInclude Include="Source\Core\vertex_format.h" />
+    <ClInclude Include="Source\Managers\shader_manager.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Source\Shaders\fragment_shader.glsl" />

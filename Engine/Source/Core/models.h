@@ -1,9 +1,7 @@
 /*
 * Author: Pranav Srinivas Kumar
 */
-#ifndef MODELS_H
-#define MODELS_H
-
+#pragma once
 // User-defined Headers
 #include "vertex_format.h"
 
@@ -54,6 +52,7 @@ namespace Models
 		* @return vertex array object of the model
 		*/
 		unsigned int GetModel(const std::string& gameModelName);
+
 	private:
 
 		/**
@@ -79,5 +78,3 @@ namespace Models
 		std::map<std::string, ModelStruct> model_map_;
 	};
 }
-
-#endif

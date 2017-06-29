@@ -3,7 +3,7 @@
  */
 
 // User-defined Headers
-#include "Core\shader_loader.h"
+#include "Managers\shader_manager.h"
 #include "Core\models.h"
 
 // External Headers
@@ -13,6 +13,7 @@
 // System Headers
 #include <iostream>
 
+Managers::ShaderManager* shader_manager;
 Models::ModelManager* model_manager;
 GLuint program;
 
@@ -40,13 +41,14 @@ void Init()
 {
 	glEnable(GL_DEPTH_TEST);
 
+	// Create Triangle Model 
 	model_manager = new Models::ModelManager();
 	model_manager->CreateTriangleModel("test_triangle");
 
-	// Load and compile shaders from file
-	Core::ShaderLoader shader_loader;
-	program = shader_loader.CreateProgram("Shaders\\vertex_shader.glsl", "Shaders\\fragment_shader.glsl");
-	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+	// Load and compile the shaders
+	shader_manager = new Managers::ShaderManager();
+	shader_manager->CreateProgram("color_shader", "Shaders\\vertex_shader.glsl", "Shaders\\fragment_shader.glsl");
+	program = Managers::ShaderManager::GetShader("color_shader");
 }
 
 int main(int argc, char **argv)
@@ -65,5 +67,7 @@ int main(int argc, char **argv)
 	glutCloseFunc(closeCallback);
 	glutMainLoop();
 	glDeleteProgram(program);
+	delete model_manager;
+	delete shader_manager;
 	return 0;
 }

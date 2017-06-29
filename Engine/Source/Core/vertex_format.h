@@ -1,9 +1,7 @@
 /*
 * Author: Pranav Srinivas Kumar
 */
-#ifndef VERTEX_FORMAT_H
-#define VERTEX_FORMAT_H
-
+#pragma once
 // External Headers
 #include "glm.hpp"
 
@@ -30,5 +28,3 @@ struct VertexFormat
 	/* Vertex Color */
 	glm::vec4 color;
 };
-
-#endif
