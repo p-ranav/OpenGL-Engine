@@ -23,6 +23,7 @@
     <ClCompile Include="Source\Core\Init\init_glut.cpp" />
     <ClCompile Include="Source\Core\models.cpp" />
     <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\Managers\scene_manager.cpp" />
     <ClCompile Include="Source\Managers\shader_manager.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -30,9 +31,11 @@
     <ClInclude Include="Source\Core\Init\framebuffer_info.h" />
     <ClInclude Include="Source\Core\Init\init_glew.h" />
     <ClInclude Include="Source\Core\Init\init_glut.h" />
+    <ClInclude Include="Source\Core\Init\listener.h" />
     <ClInclude Include="Source\Core\Init\window_info.h" />
     <ClInclude Include="Source\Core\models.h" />
     <ClInclude Include="Source\Core\vertex_format.h" />
+    <ClInclude Include="Source\Managers\scene_manager.h" />
     <ClInclude Include="Source\Managers\shader_manager.h" />
   </ItemGroup>
   <ItemGroup>

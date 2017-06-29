@@ -35,7 +35,9 @@ namespace Core
 		{
 			size_t queue_size = 4096;
 			spdlog::set_async_mode(queue_size);
-			auto console = spdlog::stdout_color_mt("console");
+			auto console = spdlog::get("console");
+			if (!console)
+				console = spdlog::stdout_color_mt("console");
 			name = "Engine";
 			width = 800; height = 600;
 			position_x = 300;
@@ -56,7 +58,9 @@ namespace Core
 		{
 			size_t queue_size = 4096;
 			spdlog::set_async_mode(queue_size);
-			auto console = spdlog::stdout_color_mt("console");
+			auto console = spdlog::get("console");
+			if (!console)
+				console = spdlog::stdout_color_mt("console");
 			name = name;
 			position_x = start_position_x;
 			position_y = start_position_y;

@@ -14,6 +14,9 @@
     <ClCompile Include="Source\Core\Init\init_glut.cpp">
       <Filter>Core\Init</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Managers\scene_manager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Core">
@@ -53,6 +56,12 @@
     </ClInclude>
     <ClInclude Include="Source\Core\Init\init_glut.h">
       <Filter>Core\Init</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\Init\listener.h">
+      <Filter>Core\Init</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Managers\scene_manager.h">
+      <Filter>Managers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

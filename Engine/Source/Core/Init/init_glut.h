@@ -8,6 +8,7 @@
 #include "framebuffer_info.h"
 #include "window_info.h"
 #include "init_glew.h"
+#include "listener.h"
 
 // External Headers
 #include "spdlog\spdlog.h"
@@ -76,6 +77,21 @@ namespace Core {
 
 			/* Callback used during teardown */
 			static void CloseCallback();
+
+		private:
+			/* Listener - Receives Notifications from SceneManager */
+			static Core::ListenerInterface* listener_;
+
+			/* Window Information to be used in callbacks */
+			static Core::WindowInfo window_info_;
+
+		public:
+
+			/**
+			 * Set the Listener Object
+			 * @param listenr Listener Interface Object
+			 */
+			static void SetListener(Core::ListenerInterface*& listener);
 		};
 	}
 }

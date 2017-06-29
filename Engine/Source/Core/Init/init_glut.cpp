@@ -3,6 +3,10 @@
 */
 #include "init_glut.h"
 
+// Define Static Variables in InitGLUT class
+Core::ListenerInterface* Core::Init::InitGLUT::listener_ = NULL;
+Core::WindowInfo Core::Init::InitGLUT::window_info_;
+
 // Initialize OpenGL Context, Display Mode, Window Position and Setup Callbacks
 void Core::Init::InitGLUT::Init(const Core::WindowInfo& window_info, const Core::ContextInfo& context_info, const Core::FrameBufferInfo& framebuffer_info)
 {
@@ -29,6 +33,7 @@ void Core::Init::InitGLUT::Init(const Core::WindowInfo& window_info, const Core:
 	
 	// Create the Window with the above parameters
 	glutCreateWindow(window_info.name.c_str());
+	window_info_ = window_info;
 
 	spdlog::get("console")->info("GLUT::Initialized!");
 	
@@ -69,15 +74,23 @@ void Core::Init::InitGLUT::IdleCallback(void)
 // Clear the necessary bits, color and swap buffer
 void Core::Init::InitGLUT::DisplayCallback()
 {
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glClearColor(0.0, 0.0, 0.0, 1);
-	glutSwapBuffers();
+	if (listener_) {
+		listener_->NotifyBeginFrame();
+		listener_->NotifyDisplayFrame();
+		glutSwapBuffers();
+		listener_->NotifyEndFrame();
+	}
 }
 
-// Do nothing special for now
+// Update the Window width and Height on change
 void Core::Init::InitGLUT::ReshapeCallback(int width, int height)
 {
-
+	if (window_info_.is_reshapable == true) {
+		if (listener_)
+			listener_->NotifyReshape(width, height, window_info_.width, window_info_.height);
+		window_info_.width = width;
+		window_info_.height = height;
+	}
 }
 
 // Call this->Close() to teardown the rendering loop
@@ -103,4 +116,10 @@ void Core::Init::InitGLUT::PrintOpenGLInfo() {
 	spdlog::get("console")->info("GLUT::Vendor: {0}", glGetString(GL_VENDOR));
 	spdlog::get("console")->info("GLUT::Renderer: {0}", glGetString(GL_RENDERER));
 	spdlog::get("console")->info("GLUT::OpenGL Version: {0}", glGetString(GL_VERSION));
+}
+
+// Set the Listener Object
+void Core::Init::InitGLUT::SetListener(Core::ListenerInterface*& listener)
+{
+	listener_ = listener;
 }
