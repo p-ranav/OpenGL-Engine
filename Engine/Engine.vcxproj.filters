@@ -8,6 +8,12 @@
     <ClCompile Include="Source\Managers\shader_manager.cpp">
       <Filter>Managers</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Core\Init\init_glew.cpp">
+      <Filter>Core\Init</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Core\Init\init_glut.cpp">
+      <Filter>Core\Init</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Core">
@@ -19,6 +25,9 @@
     <Filter Include="Managers">
       <UniqueIdentifier>{e1fd3b82-6813-4ddc-a61a-cece4af3caed}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Init">
+      <UniqueIdentifier>{3fe0dacf-375f-4366-b353-d142c90fa07a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Core\vertex_format.h">
@@ -29,6 +38,21 @@
     </ClInclude>
     <ClInclude Include="Source\Managers\shader_manager.h">
       <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\Init\window_info.h">
+      <Filter>Core\Init</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\Init\context_info.h">
+      <Filter>Core\Init</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\Init\framebuffer_info.h">
+      <Filter>Core\Init</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\Init\init_glew.h">
+      <Filter>Core\Init</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\Init\init_glut.h">
+      <Filter>Core\Init</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

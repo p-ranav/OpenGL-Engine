@@ -19,11 +19,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Core\Init\init_glew.cpp" />
+    <ClCompile Include="Source\Core\Init\init_glut.cpp" />
     <ClCompile Include="Source\Core\models.cpp" />
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\Managers\shader_manager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Core\Init\context_info.h" />
+    <ClInclude Include="Source\Core\Init\framebuffer_info.h" />
+    <ClInclude Include="Source\Core\Init\init_glew.h" />
+    <ClInclude Include="Source\Core\Init\init_glut.h" />
+    <ClInclude Include="Source\Core\Init\window_info.h" />
     <ClInclude Include="Source\Core\models.h" />
     <ClInclude Include="Source\Core\vertex_format.h" />
     <ClInclude Include="Source\Managers\shader_manager.h" />
@@ -97,7 +104,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)Dependencies\freeglut\include\GL\;$(ProjectDir)Dependencies\glew\include\;$(ProjectDir)Dependencies\glm\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Dependencies\freeglut\include\GL\;$(ProjectDir)Dependencies\glew\include\;$(ProjectDir)Dependencies\glm\;$(ProjectDir)Dependencies\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>Dependencies\freeglut\lib;Dependencies\glew\lib;</AdditionalLibraryDirectories>

@@ -16,23 +16,23 @@
 namespace Models
 {
 	/**
-	 * Model Manager Class
+	 * GameModels Class
 	 * This class contains a model_name:model_struct map
 	 * used to create, fetch and triangulate models as needed
 	 */
-	class ModelManager
+	class GameModels
 	{
 	public:
 
 		/**
-		 * ModelManager Default Constructor
+		 * GameModels Default Constructor
 		 */
-		ModelManager() {}
+		GameModels() {}
 
 		/**
-		* ModelManager Destructor
+		* GameModels Destructor
 		*/
-		~ModelManager();
+		~GameModels();
 
 		/**
 		* Creates a triangle model and saves it under the provided name

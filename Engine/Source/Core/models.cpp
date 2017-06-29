@@ -6,12 +6,12 @@
 #include "models.h"
 
 /**
- * ModelManager Destructor
+ * GameModels Destructor
  * (1) Delete the vertex array objects
  * (2) Delete the vertex buffer objects in each model
  * (3) Clear the model map
  */
-Models::ModelManager::~ModelManager()
+Models::GameModels::~GameModels()
 {
 	for (auto it = model_map_.begin(); it != model_map_.end(); ++it) {
 		// Delete VAO and VBOs (if many)
@@ -26,7 +26,7 @@ Models::ModelManager::~ModelManager()
 /**
  * Creates a triangle model and stores in map
  */
-void Models::ModelManager::CreateTriangleModel(const std::string& model_name)
+void Models::GameModels::CreateTriangleModel(const std::string& model_name)
 {
 	unsigned int vao, vbo;
 
@@ -60,7 +60,7 @@ void Models::ModelManager::CreateTriangleModel(const std::string& model_name)
 /**
  * Find model from the model map and return the vao identifier of this model
  */
-unsigned int Models::ModelManager::GetModel(const std::string& model_name)
+unsigned int Models::GameModels::GetModel(const std::string& model_name)
 {
 	return model_map_[model_name].vao;
 }
@@ -73,7 +73,7 @@ unsigned int Models::ModelManager::GetModel(const std::string& model_name)
  * (4) Clear vbos vector in the model struct
  * (5) Erase model entry from internal model map
  */
-void Models::ModelManager::DeleteModel(const std::string& model_name)
+void Models::GameModels::DeleteModel(const std::string& model_name)
 {
 	ModelStruct model = model_map_[model_name];
 	unsigned int p = model.vao;
