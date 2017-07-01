@@ -1,15 +1,18 @@
+// User-defined Headers
 #include "texture_loader.h"
 
-unsigned int Rendering::TextureLoader::LoadTexture(const std::string& filename, unsigned int width, unsigned int height) {
+// Loead textutre from file
+unsigned int Rendering::TextureLoader::Load2DBMPTexture(const std::string& filename, unsigned int width, unsigned int height) {
 	unsigned char* data;
-	LoadBMPFile(filename, width, height, data);
+	// Internal helper
+	LoadBMPFromFile(filename, width, height, data);
 
-	//create the OpenGL texture
+	// Create the OpenGL texture
 	unsigned int gl_texture_object;
 	glGenTextures(1, &gl_texture_object);
 	glBindTexture(GL_TEXTURE_2D, gl_texture_object);
 
-	//filtering
+	// Filtering
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
@@ -18,25 +21,26 @@ unsigned int Rendering::TextureLoader::LoadTexture(const std::string& filename, 
 	glGetFloatv(GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT, &maxAnisotropy);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY_EXT, maxAnisotropy);
 
-	//when we work with textures of sizes not divisible by 4 we have to use the line reader
-	//which loads the textures in OpenGL so as it can work with a 1 alligned memory (default is 4)
+	// When we work with textures of sizes not divisible by 4 we have to use the line reader
+	// which loads the textures in OpenGL so as it can work with a 1 alligned memory (default is 4)
 	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 
-	//Generates texture
+	// Generates texture
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
 
-	//eliminates the array from the RAM
+	// Eliminates the array from the RAM
 	delete data;
 
-	//creates the mipmap hierarchy
+	// Creates the mipmap hierarchy
 	glGenerateMipmap(GL_TEXTURE_2D);
 
-	//returns the texture object
+	// Returns the texture object
 	return gl_texture_object;
 }
 
-void Rendering::TextureLoader::LoadBMPFile(const std::string& filename, unsigned int& width, unsigned int& height, unsigned char*& data) {
-	//read the file
+// Internal helper for loading BMP
+void Rendering::TextureLoader::LoadBMPFromFile(const std::string& filename, unsigned int& width, unsigned int& height, unsigned char*& data) {
+	// Read from file
 	std::ifstream file(filename.c_str(), std::ios::in | std::ios::binary);
 	if (!file.good()) {
 		std::cout << "Texture Loader: Cannot open texture file ";
@@ -45,21 +49,20 @@ void Rendering::TextureLoader::LoadBMPFile(const std::string& filename, unsigned
 		return;
 	}
 
-
-	//reads the headers
-	Texture::BMP_Header h; Texture::BMP_Header_Info h_info;
+	// Reads the headers
+	Texture::BMPHeader h; Texture::BMPHeaderInfo h_info;
 	file.read((char*)&(h.type[0]), sizeof(char));
 	file.read((char*)&(h.type[1]), sizeof(char));
-	file.read((char*)&(h.f_lenght), sizeof(int));
-	file.read((char*)&(h.rezerved1), sizeof(short));
-	file.read((char*)&(h.rezerved2), sizeof(short));
-	file.read((char*)&(h.offBits), sizeof(int));
-	file.read((char*)&(h_info), sizeof(Texture::BMP_Header_Info));
+	file.read((char*)&(h.f_length), sizeof(int));
+	file.read((char*)&(h.reserved1), sizeof(short));
+	file.read((char*)&(h.reserved2), sizeof(short));
+	file.read((char*)&(h.off_bits), sizeof(int));
+	file.read((char*)&(h_info), sizeof(Texture::BMPHeaderInfo));
 
-	//assigning memory (a pixel has 3 components, R, G, B)
+	// Assigning memory (a pixel has 3 components, R, G, B)
 	data = new unsigned char[h_info.width*h_info.height * 3];
 
-	// check if the line contains 4 byte groups
+	// Check if the line contains 4 byte groups
 	long padd = 0;
 	if ((h_info.width * 3) % 4 != 0) padd = 4 - (h_info.width * 3) % 4;
 
@@ -68,12 +71,12 @@ void Rendering::TextureLoader::LoadBMPFile(const std::string& filename, unsigned
 
 	long pointer;
 	unsigned char r, g, b;
-	//reading the matrix
-	for (unsigned int i = 0; i < height; i++)
-	{
-		for (unsigned int j = 0; j < width; j++)
-		{
-			file.read((char*)&b, 1);    //in bmp, the component order in the pixel is b,g,r (in Windows)
+
+	// Reading the matrix
+	for (unsigned int i = 0; i < height; i++) {
+		for (unsigned int j = 0; j < width; j++) {
+			// The BMP component order in the pixel is b, g, r (in Windows)
+			file.read((char*)&b, 1);    
 			file.read((char*)&g, 1);
 			file.read((char*)&r, 1);
 
@@ -82,7 +85,6 @@ void Rendering::TextureLoader::LoadBMPFile(const std::string& filename, unsigned
 			data[pointer + 1] = g;
 			data[pointer + 2] = b;
 		}
-
 		file.seekg(padd, std::ios_base::cur);
 	}
 	file.close();

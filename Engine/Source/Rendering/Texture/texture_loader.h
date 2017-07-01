@@ -12,13 +12,27 @@
 
 namespace Rendering
 {
-	class TextureLoader
-	{
+	/**
+	 * TextureLoader Class - Engine's main texture loading object
+	 */
+	class TextureLoader {
 	public:
-		unsigned int LoadTexture(const std::string& filename, unsigned int width, unsigned int height);
+		/**
+		 * Loads a (2D BMP) texture from file
+		 * @param filename Name of the texture file
+		 * @param width Width of the texture
+		 * @param height Height of the texture
+		 */
+		unsigned int Load2DBMPTexture(const std::string& filename, unsigned int width, unsigned int height);
 
 	private:
-		void LoadBMPFile(const std::string& filename, unsigned int& width, unsigned int& height, unsigned char*& data);
+		/**
+		* Internal Helper for LoadTexture(...)
+		* @param filename Name of the texture file
+		* @param width Width of the texture
+		* @param height Height of the texture
+		*/
+		void LoadBMPFromFile(const std::string& filename, unsigned int& width, unsigned int& height, unsigned char*& data);
 	};
 
 }
