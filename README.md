@@ -23,3 +23,7 @@ The following libraries are already incorporated in Engine\Dependencies\.
 ### Rotating Cube
 
 ![Alt text](Tests/Cube/Screenshots/01.png?raw=true "Rotating Cube")
+
+### Icosahedron Subdivision
+
+![Alt text](Tests/Sphere/Screenshots/03.png?raw=true "Icosphere")
