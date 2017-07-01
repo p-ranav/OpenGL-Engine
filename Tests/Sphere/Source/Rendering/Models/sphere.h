@@ -39,7 +39,10 @@ namespace Rendering
 			virtual void Update() override final;
 
 		private:
+			/* List of vertices in the icosphere */
 			std::vector<VertexFormat> vertices;
+
+			/* List of indices in the icosphere */
 			std::vector<unsigned int> indices;
 		};
 	}

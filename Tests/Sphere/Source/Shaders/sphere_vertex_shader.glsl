@@ -8,5 +8,5 @@ out vec4 color;
 
 void main() {
 	color = in_color;
-	gl_Position = projection_matrix * view_matrix * vec4(in_position, 1);	
+	gl_Position = projection_matrix * view_matrix *  vec4(in_position, 1);	
 }
