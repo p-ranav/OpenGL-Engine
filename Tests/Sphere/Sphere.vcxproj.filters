@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="Source\Shaders\sphere_fragment_shader.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Source\Shaders\sphere_vertex_shader.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Rendering">
+      <UniqueIdentifier>{051fcbe0-3ffe-4d37-b696-150c03733bcd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rendering\Models">
+      <UniqueIdentifier>{8076bf6b-488a-4a81-8716-652dd0377a77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{1e03353d-831f-46d7-a793-4a68ec818c66}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Rendering\Models\sphere.h">
+      <Filter>Rendering\Models</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\Rendering\Models\sphere.cpp">
+      <Filter>Rendering\Models</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -13,6 +13,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Cube", "Tests\Cube\Cube.vcx
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sphere", "Tests\Sphere\Sphere.vcxproj", "{054D16AB-E920-454D-8F3B-D31B61177679}"
+	ProjectSection(ProjectDependencies) = postProject
+		{87BFEF26-A4C6-417A-AD65-568F0DE10AA7} = {87BFEF26-A4C6-417A-AD65-568F0DE10AA7}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
