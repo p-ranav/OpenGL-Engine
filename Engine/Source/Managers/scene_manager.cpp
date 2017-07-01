@@ -47,7 +47,8 @@ void Managers::SceneManager::NotifyEndFrame()
 
 // Nothing to do here (for now)
 void Managers::SceneManager::NotifyReshape(int width, int height, int previous_width, int previous_height) {
-	float aspect_ratio = 1.5, angle = 45.0f, near_value = 0.1f, far_value = 100.0f;
+	float aspect_ratio = (float)glutGet(GLUT_WINDOW_WIDTH) / (float)glutGet(GLUT_WINDOW_HEIGHT);
+	float angle = 45.0f, near_value = 0.1f, far_value = 100.0f;
 	projection_matrix_ = glm::perspective(glm::radians(angle), aspect_ratio, near_value, far_value);
 	glViewport(0, 0, width, height);
 }
