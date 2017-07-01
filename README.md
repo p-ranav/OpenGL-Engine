@@ -7,7 +7,7 @@
 * Ensure that the build is configured for DEBUG | x64
 * Select Build => Build Solution
 * The Engine should build as a static library (Engine.lib)
-* This Engine library is used by all the tests projects in Tests/.
+* This Engine library is used by all the test projects in Tests/.
 
 ## Dependent Libraries
 
