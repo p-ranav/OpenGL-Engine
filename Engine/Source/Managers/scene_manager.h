@@ -44,6 +44,24 @@ namespace Managers
 		 */
 		virtual void NotifyReshape(int width, int height, int previous_width, int previous_height);
 
+		/**
+		 * Returns pointer to internal model manager
+		 * @return Pointer to internal model manager object
+		 */
+		Managers::ModelManager* GetModelManager();
+
+		/**
+		* Set shader manager of the scene manager
+		* @param Pointer to the shader manager
+		*/
+		void SetShaderManager(Managers::ShaderManager*& shader_manager);
+
+		/**
+		* Set model manager of the scene manager
+		* @param Pointer to the model manager
+		*/
+		void SetModelManager(Managers::ModelManager*& model_manager);
+
 	private:
 
 		/* SceneManager contains a shader manager */
@@ -51,5 +69,11 @@ namespace Managers
 
 		/* SceneManager also contains a model manager */
 		Managers::ModelManager* model_manager_;
+
+		/* SceneManager keeps track of projection matrix */
+		glm::mat4 projection_matrix_;
+
+		/* SceneManager keeps track of view matrix */
+		glm::mat4 view_matrix_;
 	};
 }

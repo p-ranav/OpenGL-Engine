@@ -26,6 +26,9 @@
     <ClCompile Include="Source\Rendering\Models\quad.cpp">
       <Filter>Rendering\Models</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Managers\engine_manager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Core">
@@ -89,6 +92,9 @@
     </ClInclude>
     <ClInclude Include="Source\Rendering\Models\quad.h">
       <Filter>Rendering\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Managers\engine_manager.h">
+      <Filter>Managers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -44,34 +44,32 @@ namespace Core
 
 		/**
 		 * WindowInfo Overloaded Constructor
-		 * @param name Name of the Window
-		 * @param start_position_x X coordinates value of the initial position of the window
-		 * @param start_position_y Y coordinates value of the initial position of the window
-		 * @param width Width of the Window
-		 * @param height Height of the Window
-		 * @param is_reshapable Is this window reshapable?
+		 * @param new_name Name of the Window
+		 * @param new_start_position_x X coordinates value of the initial position of the window
+		 * @param new_start_position_y Y coordinates value of the initial position of the window
+		 * @param new_width Width of the Window
+		 * @param new_height Height of the Window
+		 * @param new_is_reshapable Is this window reshapable?
 		 */
-		WindowInfo(std::string name, int start_position_x, int start_position_y, int width, int height, bool is_reshapable)
-		{
+		WindowInfo(std::string new_name, int new_position_x, int new_position_y, int new_width, int new_height, bool new_is_reshapable) {
 			size_t queue_size = 4096;
 			spdlog::set_async_mode(queue_size);
 			auto console = spdlog::get("console");
 			if (!console)
 				console = spdlog::stdout_color_mt("console");
-			name = name;
-			position_x = start_position_x;
-			position_y = start_position_y;
-			width = width;
-			height = height;
-			is_reshapable = is_reshapable;
+			name = new_name;
+			position_x = new_position_x;
+			position_y = new_position_y;
+			width = new_width;
+			height = new_height;
+			is_reshapable = new_is_reshapable;
 		}
 
 		/**
 		 * WindowInfo Copy Constructor
 		 * @param window_info WindowInfo struct to copy
 		 */
-		WindowInfo(const WindowInfo& window_info)
-		{
+		WindowInfo(const WindowInfo& window_info) {
 			name = window_info.name;
 			position_x = window_info.position_x;
 			position_y = window_info.position_y;
@@ -84,8 +82,7 @@ namespace Core
 		* WindowInfo Assignment Operator
 		* @param window_info WindowInfo struct to assign
 		*/
-		void operator=(const WindowInfo& window_info)
-		{
+		void operator=(const WindowInfo& window_info) {
 			name = window_info.name;
 			position_x = window_info.position_x;
 			position_y = window_info.position_y;

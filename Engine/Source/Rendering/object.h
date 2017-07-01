@@ -31,6 +31,13 @@ namespace Rendering
 		virtual void Draw() = 0;
 
 		/**
+		* Every renderable object has a Draw call that takes a projection_matrix and view_matrix
+		* @param projection_matrix Projection Matrix of object
+		* @param view_matrix View Matrix for drawing
+		*/
+		virtual void Draw(const glm::mat4& projection_matrix, const glm::mat4& view_matrix) = 0;
+
+		/**
 		 * Every renderable object has a Update call
 		 */
 		virtual void Update() = 0;

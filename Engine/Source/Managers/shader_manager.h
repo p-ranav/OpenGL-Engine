@@ -4,6 +4,9 @@
 #include "glew.h"
 #include "freeglut.h"
 
+// External Headers
+#include "spdlog\spdlog.h"
+
 // System Headers
 #include <iostream>
 #include<fstream>

@@ -5,8 +5,8 @@ Core::ListenerInterface* Core::Init::InitGLUT::listener_ = NULL;
 Core::WindowInfo Core::Init::InitGLUT::window_info_;
 
 // Initialize OpenGL Context, Display Mode, Window Position and Setup Callbacks
-void Core::Init::InitGLUT::Init(const Core::WindowInfo& window_info, const Core::ContextInfo& context_info, const Core::FrameBufferInfo& framebuffer_info)
-{
+void Core::Init::InitGLUT::Init(const Core::WindowInfo& window_info, 
+	const Core::ContextInfo& context_info, const Core::FrameBufferInfo& framebuffer_info) {
 	// Initialize GLUT with fake arguments
 	int fakeargc = 1; char *fakeargv[] = { "fake", NULL };
 	glutInit(&fakeargc, fakeargv);
@@ -49,28 +49,24 @@ void Core::Init::InitGLUT::Init(const Core::WindowInfo& window_info, const Core:
 }
 
 // Start the Rendering Loop
-void Core::Init::InitGLUT::Run()
-{
+void Core::Init::InitGLUT::Run() {
 	spdlog::get("console")->info("GLUT::Running Rendering Loop!");
 	glutMainLoop();
 }
 
 // Leave the Rendering Loop
-void Core::Init::InitGLUT::Close()
-{
+void Core::Init::InitGLUT::Close() {
 	spdlog::get("console")->info("GLUT::Finished!");
 	glutLeaveMainLoop();
 }
 
 // Do nothing in the idle callback - Just redisplay
-void Core::Init::InitGLUT::IdleCallback(void)
-{
+void Core::Init::InitGLUT::IdleCallback(void) {
 	glutPostRedisplay();
 }
 
 // Clear the necessary bits, color and swap buffer
-void Core::Init::InitGLUT::DisplayCallback()
-{
+void Core::Init::InitGLUT::DisplayCallback() {
 	if (listener_) {
 		listener_->NotifyBeginFrame();
 		listener_->NotifyDisplayFrame();
@@ -80,9 +76,8 @@ void Core::Init::InitGLUT::DisplayCallback()
 }
 
 // Update the Window width and Height on change
-void Core::Init::InitGLUT::ReshapeCallback(int width, int height)
-{
-	if (window_info_.is_reshapable == true) {
+void Core::Init::InitGLUT::ReshapeCallback(int width, int height) {
+	if (window_info_.is_reshapable) {
 		if (listener_)
 			listener_->NotifyReshape(width, height, window_info_.width, window_info_.height);
 		window_info_.width = width;
@@ -91,20 +86,17 @@ void Core::Init::InitGLUT::ReshapeCallback(int width, int height)
 }
 
 // Call this->Close() to teardown the rendering loop
-void Core::Init::InitGLUT::CloseCallback()
-{
+void Core::Init::InitGLUT::CloseCallback() {
 	Close();
 }
 
 // Enter Full Screen mode
-void Core::Init::InitGLUT::EnterFullscreen()
-{
+void Core::Init::InitGLUT::EnterFullscreen() {
 	glutFullScreen();
 }
 
 // Exit Full Screen mode
-void Core::Init::InitGLUT::ExitFullscreen()
-{
+void Core::Init::InitGLUT::ExitFullscreen() {
 	glutLeaveFullScreen();
 }
 
@@ -116,7 +108,6 @@ void Core::Init::InitGLUT::PrintOpenGLInfo() {
 }
 
 // Set the Listener Object
-void Core::Init::InitGLUT::SetListener(Core::ListenerInterface*& listener)
-{
+void Core::Init::InitGLUT::SetListener(Core::ListenerInterface* listener) {
 	listener_ = listener;
 }

@@ -5,6 +5,11 @@ VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "Engine\Engine.vcxproj", "{87BFEF26-A4C6-417A-AD65-568F0DE10AA7}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Models.RotatingCube", "Models.RotatingCube\Models.RotatingCube.vcxproj", "{FB1394E0-9114-4A2B-A5DC-6D5420A2C344}"
+	ProjectSection(ProjectDependencies) = postProject
+		{87BFEF26-A4C6-417A-AD65-568F0DE10AA7} = {87BFEF26-A4C6-417A-AD65-568F0DE10AA7}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +26,14 @@ Global
 		{87BFEF26-A4C6-417A-AD65-568F0DE10AA7}.Release|x64.Build.0 = Release|x64
 		{87BFEF26-A4C6-417A-AD65-568F0DE10AA7}.Release|x86.ActiveCfg = Release|Win32
 		{87BFEF26-A4C6-417A-AD65-568F0DE10AA7}.Release|x86.Build.0 = Release|Win32
+		{FB1394E0-9114-4A2B-A5DC-6D5420A2C344}.Debug|x64.ActiveCfg = Debug|x64
+		{FB1394E0-9114-4A2B-A5DC-6D5420A2C344}.Debug|x64.Build.0 = Debug|x64
+		{FB1394E0-9114-4A2B-A5DC-6D5420A2C344}.Debug|x86.ActiveCfg = Debug|Win32
+		{FB1394E0-9114-4A2B-A5DC-6D5420A2C344}.Debug|x86.Build.0 = Debug|Win32
+		{FB1394E0-9114-4A2B-A5DC-6D5420A2C344}.Release|x64.ActiveCfg = Release|x64
+		{FB1394E0-9114-4A2B-A5DC-6D5420A2C344}.Release|x64.Build.0 = Release|x64
+		{FB1394E0-9114-4A2B-A5DC-6D5420A2C344}.Release|x86.ActiveCfg = Release|Win32
+		{FB1394E0-9114-4A2B-A5DC-6D5420A2C344}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

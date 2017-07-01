@@ -18,8 +18,7 @@ namespace Core {
 		bool msaa;
 
 		/* FrameBufferInfo Default Constructor */
-		FrameBufferInfo()
-		{
+		FrameBufferInfo() {
 			flags = GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH;
 			msaa = false;
 		}
@@ -31,8 +30,7 @@ namespace Core {
 		 * @param stencil Flag to enable stencil buffer
 		 * @param msaa Flag to support multi-sampling (enable it later with glEnable(GL_MULTISAMPLE))
 		 */
-		FrameBufferInfo(bool color, bool depth, bool stencil, bool msaa)
-		{
+		FrameBufferInfo(bool color, bool depth, bool stencil, bool msaa) {
 			flags = GLUT_DOUBLE; //this is a must
 			if (color)
 				flags |= GLUT_RGBA | GLUT_ALPHA;
@@ -43,6 +41,15 @@ namespace Core {
 			if (msaa)
 				flags |= GLUT_MULTISAMPLE;
 			this->msaa = msaa;
+		}
+
+		/**
+		 * Overloaded assignment operator
+		 * @param info Another FrameBufferInfo struct
+		 */
+		void operator=(const FrameBufferInfo& info) {
+			flags = info.flags;
+			msaa = info.msaa;
 		}
 	};
 }

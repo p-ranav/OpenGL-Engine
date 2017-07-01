@@ -88,7 +88,7 @@ namespace Core {
 			 * Set the Listener Object
 			 * @param listenr Listener Interface Object
 			 */
-			static void SetListener(Core::ListenerInterface*& listener);
+			static void SetListener(Core::ListenerInterface* listener);
 		};
 	}
 }

@@ -22,6 +22,7 @@
     <ClCompile Include="Source\Core\Init\init_glew.cpp" />
     <ClCompile Include="Source\Core\Init\init_glut.cpp" />
     <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\Managers\engine_manager.cpp" />
     <ClCompile Include="Source\Managers\model_manager.cpp" />
     <ClCompile Include="Source\Managers\scene_manager.cpp" />
     <ClCompile Include="Source\Managers\shader_manager.cpp" />
@@ -36,6 +37,7 @@
     <ClInclude Include="Source\Core\Init\init_glut.h" />
     <ClInclude Include="Source\Core\Init\listener.h" />
     <ClInclude Include="Source\Core\Init\window_info.h" />
+    <ClInclude Include="Source\Managers\engine_manager.h" />
     <ClInclude Include="Source\Managers\model_manager.h" />
     <ClInclude Include="Source\Managers\scene_manager.h" />
     <ClInclude Include="Source\Managers\shader_manager.h" />
@@ -71,7 +73,7 @@
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>

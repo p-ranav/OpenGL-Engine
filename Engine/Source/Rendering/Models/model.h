@@ -39,6 +39,13 @@ namespace Rendering
 			virtual void Draw() override;
 
 			/**
+			* Every renderable object has a Draw call that takes a projection_matrix and view_matrix
+			* @param projection_matrix Projection Matrix of object
+			* @param view_matrix View Matrix for drawing
+			*/
+			virtual void Draw(const glm::mat4& projection_matrix, const glm::mat4& view_matrix) override;
+
+			/**
 			 * Every model has a Update method - This method will be overridden
 			 */
 			virtual void Update() override;
