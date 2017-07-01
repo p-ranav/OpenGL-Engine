@@ -2,19 +2,7 @@
 #include "model_manager.h"
 
 // Construct some models to render
-Managers::ModelManager::ModelManager() {
-	//triangle game object
-	Rendering::Models::Triangle* triangle = new Rendering::Models::Triangle();
-	triangle->SetProgram(ShaderManager::GetShader("colorShader"));
-	triangle->Create();
-	model_map_2d_["triangle"] = triangle;
-
-	// quad game object
-	Rendering::Models::Quad* quad = new Rendering::Models::Quad();
-	quad->SetProgram(ShaderManager::GetShader("colorShader"));
-	quad->Create();
-	model_map_2d_["quad"] = quad;
-}
+Managers::ModelManager::ModelManager() {}
 
 // Delete models in the internal map and clear the map
 Managers::ModelManager::~ModelManager() {

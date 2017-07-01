@@ -5,8 +5,7 @@
 Managers::EngineManager::EngineManager() {}
 
 // Initialize Window, Context, FrameBufferInfo, OpenGL & all Managers
-bool Managers::EngineManager::Init()
-{
+bool Managers::EngineManager::Init() {
 	// Setup window information
 	Core::WindowInfo window(std::string("Engine"), 400, 200, 800, 600, true);
 
@@ -40,46 +39,28 @@ bool Managers::EngineManager::Init()
 }
 
 // Main Engine Loop
-void Managers::EngineManager::Run()
-{
+void Managers::EngineManager::Run() {
 	Core::Init::InitGLUT::Run();
 }
 
 // Return Scene Manager
-Managers::SceneManager* Managers::EngineManager::GetSceneManager() const
-{
+Managers::SceneManager* Managers::EngineManager::GetSceneManager() const {
 	return scene_manager_;
 }
 
 // Return Shader Manager
-Managers::ShaderManager* Managers::EngineManager::GetShaderManager() const
-{
+Managers::ShaderManager* Managers::EngineManager::GetShaderManager() const {
 	return shader_manager_;
 }
 
 // Return Model Manager
-Managers::ModelManager* Managers::EngineManager::GetModelManager() const
-{
+Managers::ModelManager* Managers::EngineManager::GetModelManager() const {
 	return model_manager_;
 }
 
 // Cleanup managers
-Managers::EngineManager::~EngineManager()
-{
+Managers::EngineManager::~EngineManager() {
 	// Delete Scene Manager
 	if (scene_manager_)
 		delete scene_manager_;
-
-	/**
-	 * SceneManager's destructor should
-	 * already be deleting shader and
-	 * model managers but if not:
-	 */
-	
-	// Delete Shader Manager
-	if (shader_manager_)
-		delete shader_manager_;
-	// Delete Model Manager
-	if (model_manager_)
-		delete model_manager_;
 }
