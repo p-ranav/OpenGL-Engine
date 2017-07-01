@@ -19,16 +19,6 @@ namespace Rendering
 		public:
 
 			/**
-			 * Cube Default Constructor
-			 */
-			Cube() {}
-
-			/**
-			* Cube Default Destructor
-			*/
-			~Cube() {}
-
-			/**
 			* (1) Create the set of vertices
 			* (2) Create and bind vbo and vao
 			*/
