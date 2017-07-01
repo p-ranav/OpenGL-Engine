@@ -86,7 +86,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)Engine\Source;$(SolutionDir)Engine\Dependencies\freeglut\include\GL\;$(SolutionDir)Engine\Dependencies\glew\include\;$(SolutionDir)Engine\Dependencies\glm\;$(SolutionDir)Engine\Dependencies\;$(SolutionDir)Models.RotatingCube\Source</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Engine\Source;$(SolutionDir)Engine\Dependencies\freeglut\include\GL\;$(SolutionDir)Engine\Dependencies\glew\include\;$(SolutionDir)Engine\Dependencies\glm\;$(SolutionDir)Engine\Dependencies\;$(SolutionDir)Tests\Cube\Source</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(TargetDir);$(SolutionDir)Engine\Dependencies\freeglut\lib\;$(SolutionDir)Engine\Dependencies\glew\lib\;</AdditionalLibraryDirectories>

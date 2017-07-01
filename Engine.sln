@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "Engine\Engine.vcxproj", "{87BFEF26-A4C6-417A-AD65-568F0DE10AA7}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Models.RotatingCube", "Models.RotatingCube\Models.RotatingCube.vcxproj", "{FB1394E0-9114-4A2B-A5DC-6D5420A2C344}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{30029F7E-F09C-40F9-AEF3-1631925EFCC5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Cube", "Tests\Cube\Cube.vcxproj", "{FB1394E0-9114-4A2B-A5DC-6D5420A2C344}"
 	ProjectSection(ProjectDependencies) = postProject
 		{87BFEF26-A4C6-417A-AD65-568F0DE10AA7} = {87BFEF26-A4C6-417A-AD65-568F0DE10AA7}
 	EndProjectSection
@@ -37,5 +39,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FB1394E0-9114-4A2B-A5DC-6D5420A2C344} = {30029F7E-F09C-40F9-AEF3-1631925EFCC5}
 	EndGlobalSection
 EndGlobal
