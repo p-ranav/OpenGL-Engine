@@ -15,5 +15,5 @@ The following libraries are already incorporated in Engine\Dependencies\.
 
 * [FreeGLUT](http://freeglut.sourceforge.net/)
 * [GLEW](http://glew.sourceforge.net/)
-* [OpenGL Mathematics (GLM)]()
+* [OpenGL Mathematics (GLM)](http://glm.g-truc.net/0.9.8/index.html)
 * [Spdlog C++ Logging Library](https://github.com/gabime/spdlog)
