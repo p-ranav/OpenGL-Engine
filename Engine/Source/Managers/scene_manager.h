@@ -3,6 +3,7 @@
 // User-defined Headers
 #include "shader_manager.h"
 #include "model_manager.h"
+#include "camera_manager.h"
 #include "../Core/Init/listener.h"
 
 namespace Managers
@@ -62,6 +63,12 @@ namespace Managers
 		*/
 		void SetModelManager(Managers::ModelManager*& model_manager);
 
+		/**
+		* Set camera manager of the scene manager
+		* @param Pointer to the camera manager
+		*/
+		void SetCameraManager(Managers::CameraManager*& camera_manager);
+
 	private:
 
 		/* SceneManager contains a shader manager */
@@ -70,10 +77,7 @@ namespace Managers
 		/* SceneManager also contains a model manager */
 		Managers::ModelManager* model_manager_;
 
-		/* SceneManager keeps track of projection matrix */
-		glm::mat4 projection_matrix_;
-
-		/* SceneManager keeps track of view matrix */
-		glm::mat4 view_matrix_;
+		/* SceneManager has a CameraManager to take care of view and projection matrices */
+		Managers::CameraManager* camera_manager_;
 	};
 }

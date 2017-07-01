@@ -10,6 +10,9 @@ int main(int argc, char **argv)
 	Managers::EngineManager* engine = new Managers::EngineManager();
 	engine->Init();
 
+	// Setup camera's initial position
+	engine->GetCameraManager()->SetPosition(glm::vec3(0, 0, 5));
+
 	// Setup Cube's Vertex and Fragment Shaders
 	engine->GetShaderManager()->CreateProgram("cubeShader", "Shaders\\cube_vertex_shader.glsl", "Shaders\\cube_fragment_shader.glsl");
 

@@ -32,8 +32,14 @@ bool Managers::EngineManager::Init() {
 	// Add shader manager and create model manager
 	if (scene_manager_ && shader_manager_) {
 		scene_manager_->SetShaderManager(shader_manager_);
+
+		// Create the Scene's Model Manager
 		model_manager_ = new Managers::ModelManager();
 		scene_manager_->SetModelManager(model_manager_);
+
+		// Create the Scene's Camera Manager
+		camera_manager_ = new Managers::CameraManager();
+		scene_manager_->SetCameraManager(camera_manager_);
 	}
 	else
 		return false;
@@ -59,6 +65,11 @@ Managers::ShaderManager* Managers::EngineManager::GetShaderManager() const {
 // Return Model Manager
 Managers::ModelManager* Managers::EngineManager::GetModelManager() const {
 	return model_manager_;
+}
+
+// Return Camera Manager
+Managers::CameraManager* Managers::EngineManager::GetCameraManager() const {
+	return camera_manager_;
 }
 
 // Return Texture Loader

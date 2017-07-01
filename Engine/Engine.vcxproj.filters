@@ -31,6 +31,9 @@
     <ClCompile Include="Source\Rendering\Texture\texture_loader.cpp">
       <Filter>Rendering\Texture</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Managers\camera_manager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Core">
@@ -106,6 +109,9 @@
     </ClInclude>
     <ClInclude Include="Source\Rendering\Texture\texture_loader.h">
       <Filter>Rendering\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Managers\camera_manager.h">
+      <Filter>Managers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

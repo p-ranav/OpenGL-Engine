@@ -54,6 +54,12 @@ namespace Managers
 		Managers::ModelManager* GetModelManager() const;
 
 		/**
+		* Return engine's camera manager
+		* @return camera manager
+		*/
+		Managers::CameraManager* GetCameraManager() const;
+
+		/**
 		 * Return engine's texture loader object
 		 * @return texture loader
 		 */
@@ -69,6 +75,9 @@ namespace Managers
 
 		/* Engine's main Model Manager - Same one set in Scene manager */
 		Managers::ModelManager* model_manager_;
+
+		/* Engine's main Camera Manager - Same one set in Scene manager */
+		Managers::CameraManager* camera_manager_;
 
 		/* Engine's texture loader object */
 		Rendering::TextureLoader* texture_loader_;
