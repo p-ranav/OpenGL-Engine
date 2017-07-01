@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\Rendering\Models\cube.cpp" />
   </ItemGroup>
   <ItemGroup>
