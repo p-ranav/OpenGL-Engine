@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\Managers\shader_manager.cpp">
       <Filter>Managers</Filter>
     </ClCompile>
@@ -29,6 +28,9 @@
     <ClCompile Include="Source\Managers\engine_manager.cpp">
       <Filter>Managers</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Rendering\Texture\texture_loader.cpp">
+      <Filter>Rendering\Texture</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Core">
@@ -48,6 +50,9 @@
     </Filter>
     <Filter Include="Rendering\Models">
       <UniqueIdentifier>{d0367dd4-3b56-496b-8908-28123040743d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rendering\Texture">
+      <UniqueIdentifier>{38546144-905c-45c9-b724-2930015c2242}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -95,6 +100,12 @@
     </ClInclude>
     <ClInclude Include="Source\Managers\engine_manager.h">
       <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Rendering\Texture\bmp_headers.h">
+      <Filter>Rendering\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Rendering\Texture\texture_loader.h">
+      <Filter>Rendering\Texture</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -34,3 +34,14 @@ void Rendering::Models::Model::Destroy() {
 	glDeleteBuffers(static_cast<GLsizei>(vbos.size()), &vbos[0]);
 	vbos.clear();
 }
+
+// Set new texture for this model in the model's internal map
+void Rendering::Models::Model::SetTexture(std::string texture_name, GLuint texture) {
+	if (texture == 0) return;
+	textures[texture_name] = texture;
+}
+
+// Return texture from internal map with given texture name
+const GLuint Rendering::Models::Model::GetTexture(std::string texture_name) const {
+	return textures.at(texture_name);
+}

@@ -18,6 +18,9 @@ int main(int argc, char **argv)
 	cube->SetProgram(engine->GetShaderManager()->GetShader("cubeShader"));
 	cube->Create();
 
+	unsigned int texture = engine->GetTextureLoader()->LoadTexture("Textures\\Crate.bmp", 256, 256);
+	cube->SetTexture("Crate", texture);
+
 	// Add cube to Engine's Model Manager
 	engine->GetModelManager()->AddModel3D("cube", cube);
 

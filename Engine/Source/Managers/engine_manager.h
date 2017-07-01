@@ -2,6 +2,7 @@
 
 // User-defined Headers
 #include "..\Core\Init\init_glut.h"
+#include "..\Rendering\Texture\texture_loader.h"
 #include "scene_manager.h"
 
 namespace Managers
@@ -52,6 +53,12 @@ namespace Managers
 		*/
 		Managers::ModelManager* GetModelManager() const;
 
+		/**
+		 * Return engine's texture loader object
+		 * @return texture loader
+		 */
+		Rendering::TextureLoader* GetTextureLoader() const;
+
 	private:
 
 		/* Engine's main Scene manager object */
@@ -62,5 +69,8 @@ namespace Managers
 
 		/* Engine's main Model Manager - Same one set in Scene manager */
 		Managers::ModelManager* model_manager_;
+
+		/* Engine's texture loader object */
+		Rendering::TextureLoader* texture_loader_;
 	};
 }

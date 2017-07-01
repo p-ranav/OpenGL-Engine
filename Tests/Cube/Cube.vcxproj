@@ -29,6 +29,9 @@
     <None Include="Source\Shaders\cube_fragment_shader.glsl" />
     <None Include="Source\Shaders\cube_vertex_shader.glsl" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="Source\Textures\Crate.bmp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{FB1394E0-9114-4A2B-A5DC-6D5420A2C344}</ProjectGuid>
@@ -93,7 +96,8 @@
       <AdditionalDependencies>opengl32.lib;freeglut.lib;glew32.lib;Engine.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /Y "$(ProjectDir)Source\Shaders\*" "$(TargetDir)Shaders\*"</Command>
+      <Command>xcopy /Y "$(ProjectDir)Source\Shaders\*" "$(TargetDir)Shaders\*"
+xcopy /Y "$(ProjectDir)Source\Textures\*" "$(TargetDir)Textures\*"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

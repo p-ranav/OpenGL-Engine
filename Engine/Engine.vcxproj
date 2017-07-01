@@ -21,7 +21,6 @@
   <ItemGroup>
     <ClCompile Include="Source\Core\Init\init_glew.cpp" />
     <ClCompile Include="Source\Core\Init\init_glut.cpp" />
-    <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\Managers\engine_manager.cpp" />
     <ClCompile Include="Source\Managers\model_manager.cpp" />
     <ClCompile Include="Source\Managers\scene_manager.cpp" />
@@ -29,6 +28,7 @@
     <ClCompile Include="Source\Rendering\Models\model.cpp" />
     <ClCompile Include="Source\Rendering\Models\quad.cpp" />
     <ClCompile Include="Source\Rendering\Models\triangle.cpp" />
+    <ClCompile Include="Source\Rendering\Texture\texture_loader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Core\Init\context_info.h" />
@@ -45,6 +45,8 @@
     <ClInclude Include="Source\Rendering\Models\quad.h" />
     <ClInclude Include="Source\Rendering\Models\triangle.h" />
     <ClInclude Include="Source\Rendering\object.h" />
+    <ClInclude Include="Source\Rendering\Texture\bmp_headers.h" />
+    <ClInclude Include="Source\Rendering\Texture\texture_loader.h" />
     <ClInclude Include="Source\Rendering\vertex_format.h" />
   </ItemGroup>
   <ItemGroup>

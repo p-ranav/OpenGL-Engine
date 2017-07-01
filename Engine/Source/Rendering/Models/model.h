@@ -73,6 +73,20 @@ namespace Rendering
 			 */
 			virtual const std::vector<GLuint>& GetVbos() const override;
 
+			/**
+			* Set texture of the object
+			* @param texture_name Name of the texture
+			* @param texture Identifier of the texture
+			*/
+			virtual void SetTexture(std::string texture_name, GLuint texture) override;
+
+			/**
+			* Returns texture of the object
+			* @param texture_name Name of the texture
+			* @return texture ID associated with provided texture name
+			*/
+			virtual const GLuint GetTexture(std::string texture_name) const override;
+
 		protected:
 
 			/* Vertex Array Object of this model */
@@ -83,6 +97,9 @@ namespace Rendering
 
 			/* Vertex Buffer Objects of this model */
 			std::vector<GLuint> vbos;
+
+			/* Map of textures of this model */
+			std::map<std::string, GLuint> textures;
 		};
 	}
 }

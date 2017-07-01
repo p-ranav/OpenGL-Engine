@@ -53,6 +53,20 @@ namespace Rendering
 		virtual void Destroy() = 0;
 
 		/**
+		 * Set texture of the object
+		 * @param texture_name Name of the texture
+		 * @param texture Identifier of the texture
+		 */
+		virtual void SetTexture(std::string texture_name, GLuint texture) = 0;
+
+		/**
+		* Returns texture of the object
+		* @param texture_name Name of the texture
+		* @return texture ID associated with provided texture name
+		*/
+		virtual const GLuint GetTexture(std::string texture_name) const = 0;
+
+		/**
 		 * Get the vertex array object of this object
 		 * @return Identifier for the vao of this object
 		 */

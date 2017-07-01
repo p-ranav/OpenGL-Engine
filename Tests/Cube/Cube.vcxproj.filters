@@ -24,10 +24,18 @@
     <Filter Include="Shaders">
       <UniqueIdentifier>{b5be6725-b5b8-4e89-8c1f-8397eea85af3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Textures">
+      <UniqueIdentifier>{a15d57bf-a90b-439f-a867-5cb51558150b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Rendering\Models\cube.h">
       <Filter>Rendering\Models</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Source\Textures\Crate.bmp">
+      <Filter>Textures</Filter>
+    </Image>
   </ItemGroup>
 </Project>

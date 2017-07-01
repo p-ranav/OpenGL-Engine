@@ -41,6 +41,7 @@ namespace Rendering
 
 			/* Rotation vector and rotation speed */
 			glm::vec3 rotation, rotation_speed;
+			glm::vec3 rotation_sin;
 		};
 	}
 }
