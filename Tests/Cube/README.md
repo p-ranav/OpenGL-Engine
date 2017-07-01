@@ -1,5 +1,4 @@
-Rotating Cube Test
-===================
+# Rotating Cube Test
 
 ![Alt text](Screenshots/01.png?raw=true "Rotating Cube")
 
