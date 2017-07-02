@@ -28,6 +28,6 @@ The following libraries are already incorporated in Engine\Dependencies\.
 
 ![Alt text](Tests/Sphere/Screenshots/03.png?raw=true "Icosphere")
 
-# Earth - DDS Texture + Lighting
+# Earth - DDS Texture + Lighting + Cubemap Skybox
 
 ![Alt text](Tests/Earth/Screenshots/01.png?raw=true "Earth")
