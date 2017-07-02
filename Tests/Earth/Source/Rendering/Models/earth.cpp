@@ -29,6 +29,7 @@
 
 void Rendering::Models::Earth::Create(float radius, float slices, float stacks) {
 
+	// Prepare vertices, normal and texture coordinates
 	for (int i = 0; i <= stacks; ++i) {
 		// V texture coordinate
 		double V = i / static_cast<double>(stacks);
@@ -49,6 +50,7 @@ void Rendering::Models::Earth::Create(float radius, float slices, float stacks) 
 		}
 	}
 
+	// Prepare indices for all these triangles
 	for (int i = 0; i < slices * stacks + slices; ++i) {
 		indices.push_back(i);
 		indices.push_back(static_cast<GLuint>(i + slices + 1));
@@ -59,6 +61,7 @@ void Rendering::Models::Earth::Create(float radius, float slices, float stacks) 
 		indices.push_back(static_cast<GLuint>(i + 1));
 	}
 
+	// Bind vao and vbos
 	GLuint vao;
 	glGenVertexArrays(1, &vao);
 	glBindVertexArray(vao);
@@ -66,21 +69,25 @@ void Rendering::Models::Earth::Create(float radius, float slices, float stacks) 
 	GLuint vbos[4];
 	glGenBuffers(4, vbos);
 
+	// Vertex Position
 	glBindBuffer(GL_ARRAY_BUFFER, vbos[0]);
 	glBufferData(GL_ARRAY_BUFFER, positions_.size() * sizeof(glm::vec3), positions_.data(), GL_STATIC_DRAW);
 	glVertexAttribPointer(POSITION_ATTRIBUTE, 3, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0));
 	glEnableVertexAttribArray(POSITION_ATTRIBUTE);
 
+	// Vertex Normal
 	glBindBuffer(GL_ARRAY_BUFFER, vbos[1]);
 	glBufferData(GL_ARRAY_BUFFER, normals_.size() * sizeof(glm::vec3), normals_.data(), GL_STATIC_DRAW);
 	glVertexAttribPointer(NORMAL_ATTRIBUTE, 3, GL_FLOAT, GL_TRUE, 0, BUFFER_OFFSET(0));
 	glEnableVertexAttribArray(NORMAL_ATTRIBUTE);
 
+	// Texture Coordinate
 	glBindBuffer(GL_ARRAY_BUFFER, vbos[2]);
 	glBufferData(GL_ARRAY_BUFFER, texture_coordinates_.size() * sizeof(glm::vec2), texture_coordinates_.data(), GL_STATIC_DRAW);
 	glVertexAttribPointer(TEXCOORD0_ATTRIBUTE, 2, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0));
 	glEnableVertexAttribArray(TEXCOORD0_ATTRIBUTE);
 
+	// Triangle Indices
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vbos[3]);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(GLuint), indices.data(), GL_STATIC_DRAW);
 
