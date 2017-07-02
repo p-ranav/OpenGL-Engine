@@ -30,4 +30,4 @@ The following libraries are already incorporated in Engine\Dependencies\.
 
 # Earth - DDS Texture + Lighting
 
-![Alt text](Screenshots/01.png?raw=true "Earth")
+![Alt text](Tests/Earth/Screenshots/01.png?raw=true "Earth")
