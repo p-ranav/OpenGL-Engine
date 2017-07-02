@@ -1,0 +1,13 @@
+<settings>
+  <SourceFolder>C:\Users\prana\Downloads\TO_DDS_TEST</SourceFolder>
+  <TargetFolder>C:\Users\prana\OneDrive\Documents\Visual Studio 2017\Projects\Engine\x64\Debug\Textures</TargetFolder>
+  <Format>DXT5</Format>
+  <Option0>Unchecked</Option0>
+  <Option1>Checked</Option1>
+  <Option2>Checked</Option2>
+  <Option3>Unchecked</Option3>
+  <Option4>Unchecked</Option4>
+  <Option5>Unchecked</Option5>
+  <Option6>Unchecked</Option6>
+  <Address>Repeat</Address>
+</settings>
