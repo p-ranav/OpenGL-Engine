@@ -126,12 +126,11 @@ namespace Managers
 		static int KEY_W, KEY_A, KEY_S, KEY_D, KEY_Q, KEY_E;
 
 		/**
-		 * Static Variables keeping track of mouse position
+		 * Static Variables keeping track of mouse position and state
 		 */
-		static int MOUSE_STATE;
+		static int MOUSE_STATE; 
 		static glm::ivec2 MOUSE_POSITION;
 		static glm::quat MOUSE_ROTATION_X, MOUSE_ROTATION_Y;
-		
 
 		/**
 		 * Keypress callback that will enable camera translation
@@ -154,6 +153,12 @@ namespace Managers
 		 */
 		static void MousePressCallback(int button, int state, int x, int y);
 
+		/**
+		* Mouse Motion Callback
+		* Called when user holds down and moves mouse
+		* @param x X value of mouse position
+		* @param y Y value of mouse posiiton
+		*/
 		static void MouseMoveCallback(int x, int y);
 
 	protected:
