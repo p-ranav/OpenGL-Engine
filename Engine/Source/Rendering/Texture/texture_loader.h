@@ -33,6 +33,12 @@ namespace Rendering
 		*/
 		GLuint LoadDDSTexture(std::string filename);
 
+		/**
+		* Loads a cube map
+		* @param faces Vector of images that make up the cube
+		*/
+		unsigned int LoadCubeMapTexture(std::vector<std::string> faces);
+
 	private:
 		/**
 		* Internal Helper for LoadTexture(...)

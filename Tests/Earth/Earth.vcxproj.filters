@@ -7,6 +7,12 @@
     <None Include="Source\Shaders\earth_vertex_shader.glsl">
       <Filter>Shaders</Filter>
     </None>
+    <None Include="Source\Shaders\skybox_fragment_shader.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Source\Shaders\skybox_vertex_shader.glsl">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Rendering">
@@ -24,9 +30,15 @@
       <Filter>Rendering\Models</Filter>
     </ClCompile>
     <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\Rendering\Models\skybox.cpp">
+      <Filter>Rendering\Models</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Rendering\Models\earth.h">
+      <Filter>Rendering\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Rendering\Models\skybox.h">
       <Filter>Rendering\Models</Filter>
     </ClInclude>
   </ItemGroup>

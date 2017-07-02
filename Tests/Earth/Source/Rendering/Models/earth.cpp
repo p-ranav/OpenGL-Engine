@@ -107,7 +107,7 @@ void Rendering::Models::Earth::Update() {}
 void Rendering::Models::Earth::Draw(Managers::CameraManager* camera) {
 	const glm::vec4 white(1);
 	const glm::vec4 black(0);
-	const glm::vec4 ambient(0.1f, 0.1f, 0.1f, 1.0f);
+	const glm::vec4 ambient(0.5f, 0.5f, 0.5f, 1.0f);
 
 	// Map shader variables
 	glUseProgram(program);
