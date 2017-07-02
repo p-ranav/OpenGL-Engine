@@ -2,8 +2,8 @@
 #include "camera_manager.h"
 
 // Initialize CameraManager
-Managers::CameraManager::CameraManager() : 
-	view_port_(0), position_(0), rotation_(), 
+Managers::CameraManager::CameraManager() :
+	view_port_(0), position_(0), rotation_(),
 	projection_matrix_(1), view_matrix_(1), is_view_dirty_(false)
 {}
 
@@ -102,4 +102,101 @@ void Managers::CameraManager::UpdateViewMatrix() {
 		view_matrix_ = rotate * translate;
 		is_view_dirty_ = false;
 	}
+}
+
+// Define Static Variables
+int Managers::CameraManager::KEY_W = 0;
+int Managers::CameraManager::KEY_A = 0;
+int Managers::CameraManager::KEY_S = 0;
+int Managers::CameraManager::KEY_D = 0;
+int Managers::CameraManager::KEY_Q = 0;
+int Managers::CameraManager::KEY_E = 0;
+glm::ivec2 Managers::CameraManager::MOUSE_POSITION = glm::ivec2();
+glm::quat Managers::CameraManager::MOUSE_ROTATION_X = glm::quat();
+glm::quat Managers::CameraManager::MOUSE_ROTATION_Y = glm::quat();
+int Managers::CameraManager::MOUSE_STATE = 0;
+
+// Key press callback - Simply save the key that was pressed
+void Managers::CameraManager::KeyPressCallback(unsigned char c, int x, int y) {
+	std::cout << "Key Press Detected: " << c << std::endl;
+	switch (c) {
+	case 'w':
+	case 'W':
+		KEY_W = 1;
+		break;
+	case 'a':
+	case 'A':
+		KEY_A = 1;
+		break;
+	case 's':
+	case 'S':
+		KEY_S = 1;
+		break;
+	case 'd':
+	case 'D':
+		KEY_D = 1;
+		break;
+	case 'q':
+	case 'Q':
+		KEY_Q = 1;
+		break;
+	case 'e':
+	case 'E':
+		KEY_E = 1;
+		break;
+	case 27:
+		glutLeaveMainLoop();
+		break;
+	}
+}
+
+// Key release callback - Simply reset the key that was pressed
+void Managers::CameraManager::KeyReleaseCallback(unsigned char c, int x, int y) {
+	switch (c)
+	{
+	case 'w':
+	case 'W':
+		KEY_W = 0;
+		break;
+	case 'a':
+	case 'A':
+		KEY_A = 0;
+		break;
+	case 's':
+	case 'S':
+		KEY_S = 0;
+		break;
+	case 'd':
+	case 'D':
+		KEY_D = 0;
+		break;
+	case 'q':
+	case 'Q':
+		KEY_Q = 0;
+		break;
+	case 'e':
+	case 'E':
+		KEY_E = 0;
+		break;
+	default:
+		break;
+	}
+}
+
+// Handle mouse press
+void Managers::CameraManager::MousePressCallback(int button, int state, int x, int y) {
+	MOUSE_STATE = state;
+	MOUSE_POSITION = glm::ivec2(x, y);
+}
+
+// HANDLE mouse movement
+void Managers::CameraManager::MouseMoveCallback(int x, int y) {
+	glm::ivec2 current_mouse_position = glm::ivec2(x, y);
+	glm::vec2 delta = glm::vec2(current_mouse_position - MOUSE_POSITION);
+	MOUSE_POSITION = current_mouse_position;
+
+	std::cout << "dX: " << delta.x << " dy: " << delta.y << std::endl;
+
+	MOUSE_ROTATION_X = glm::angleAxis<float>(glm::radians(delta.y) * 0.1f, glm::vec3(1, 0, 0));
+	MOUSE_ROTATION_Y = glm::angleAxis<float>(glm::radians(delta.x) * 0.1f, glm::vec3(0, 1, 0));
 }

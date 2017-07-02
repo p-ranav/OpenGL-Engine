@@ -40,6 +40,10 @@ bool Managers::EngineManager::Init() {
 		// Create the Scene's Camera Manager
 		camera_manager_ = new Managers::CameraManager();
 		scene_manager_->SetCameraManager(camera_manager_);
+		glutKeyboardFunc(Managers::CameraManager::KeyPressCallback);
+		glutKeyboardUpFunc(Managers::CameraManager::KeyReleaseCallback);
+		glutMouseFunc(Managers::CameraManager::MousePressCallback);
+		glutMotionFunc(Managers::CameraManager::MouseMoveCallback);
 	}
 	else
 		return false;

@@ -21,6 +21,15 @@ Managers::SceneManager::~SceneManager() {
  * model manager's internal map
  */ 
 void Managers::SceneManager::NotifyBeginFrame() {
+	// Translate camera to handle key press
+	float cameraSpeed = 0.1f;
+	camera_manager_->Translate(glm::vec3(Managers::CameraManager::KEY_D - Managers::CameraManager::KEY_A, 
+		Managers::CameraManager::KEY_Q - Managers::CameraManager::KEY_E, 
+		Managers::CameraManager::KEY_S - Managers::CameraManager::KEY_W) * cameraSpeed);
+	if (Managers::CameraManager::MOUSE_STATE == 0) {
+		camera_manager_->Rotate(Managers::CameraManager::MOUSE_ROTATION_X);
+		camera_manager_->Rotate(Managers::CameraManager::MOUSE_ROTATION_Y);
+	}
 	model_manager_->Update();
 }
 

@@ -8,6 +8,9 @@
 #include "gtx\transform.hpp"
 #include "gtc\type_ptr.hpp"
 
+// System Headers
+#include <iostream>
+
 namespace Managers 
 {
 	class CameraManager 
@@ -116,6 +119,42 @@ namespace Managers
 		* @return view matrix of the camera
 		*/
 		glm::mat4 GetViewMatrix();
+
+		/**
+		 * Static Variables keeping track of key presses
+		 */
+		static int KEY_W, KEY_A, KEY_S, KEY_D, KEY_Q, KEY_E;
+
+		/**
+		 * Static Variables keeping track of mouse position
+		 */
+		static int MOUSE_STATE;
+		static glm::ivec2 MOUSE_POSITION;
+		static glm::quat MOUSE_ROTATION_X, MOUSE_ROTATION_Y;
+		
+
+		/**
+		 * Keypress callback that will enable camera translation
+		 * @param c Character corresponding to the key press
+		 */
+		static void KeyPressCallback(unsigned char c, int x, int y);
+
+		/**
+		* Key release callback that will enable resetting camera translation
+		* @param c Character corresponding to the key release
+		*/
+		static void KeyReleaseCallback(unsigned char c, int x, int y);
+
+		/**
+		 * Mouse Press Callback
+		 * @param button Button that was pressed
+		 * @param state State of the button press
+		 * @param x X value of mouse position
+		 * @param y Y value of mouse posiiton
+		 */
+		static void MousePressCallback(int button, int state, int x, int y);
+
+		static void MouseMoveCallback(int x, int y);
 
 	protected:
 
