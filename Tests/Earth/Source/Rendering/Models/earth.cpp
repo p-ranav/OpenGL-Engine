@@ -122,7 +122,7 @@ void Rendering::Models::Earth::Draw(Managers::CameraManager* camera) {
 	glm::mat4 modelMatrix = glm::rotate(glm::radians(0.0f), glm::vec3(0, 1, 0)) * glm::scale(glm::vec3(12.756f));
 
 	// Properties of the Light Source
-	glUniform4fv(glGetUniformLocation(program, "light_position_w"), 1, glm::value_ptr(modelMatrix[3])); // Need to add the light source (Sun)
+	glUniform4fv(glGetUniformLocation(program, "light_position_w"), 1, glm::value_ptr(modelMatrix[3])); 
 	glUniform4fv(glGetUniformLocation(program, "light_color"), 1, glm::value_ptr(white));
 	glUniform4fv(glGetUniformLocation(program, "ambient"), 1, glm::value_ptr(ambient));
 

@@ -239,7 +239,7 @@ void Rendering::TextureLoader::LoadBMPFromFile(const std::string& filename, unsi
 	// Read from file
 	std::ifstream file(filename.c_str(), std::ios::in | std::ios::binary);
 	if (!file.good()) {
-		std::cout << "Texture Loader: Cannot open texture file ";
+		spdlog::get("console")->error("Cannot open texture file {0}", filename);
 		width = 0;
 		height = 0;
 		return;

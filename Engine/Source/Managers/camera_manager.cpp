@@ -122,7 +122,6 @@ glm::vec3 Managers::CameraManager::CAMERA_TRANSLATION = glm::vec3();
 
 // Key press callback - Simply save the key that was pressed
 void Managers::CameraManager::KeyPressCallback(unsigned char c, int x, int y) {
-	std::cout << "Key Press Detected: " << c << std::endl;
 	switch (c) {
 	case 'w':
 	case 'W':

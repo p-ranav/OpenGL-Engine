@@ -5,6 +5,7 @@
 
 // External Headers
 #include "glew.h"
+#include "spdlog\spdlog.h"
 
 // System Headers
 #include <fstream>
