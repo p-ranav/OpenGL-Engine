@@ -115,6 +115,10 @@ glm::ivec2 Managers::CameraManager::MOUSE_POSITION = glm::ivec2();
 glm::quat Managers::CameraManager::MOUSE_ROTATION_X = glm::quat();
 glm::quat Managers::CameraManager::MOUSE_ROTATION_Y = glm::quat();
 int Managers::CameraManager::MOUSE_STATE = 0;
+const glm::vec3 Managers::CameraManager::LOCAL_FORWARD(0.0f, 0.0f, -1.0f);
+const glm::vec3 Managers::CameraManager::LOCAL_UP(0.0f, 1.0f, 0.0f);
+const glm::vec3 Managers::CameraManager::LOCAL_RIGHT(1.0f, 0.0f, 0.0f);
+glm::vec3 Managers::CameraManager::CAMERA_TRANSLATION = glm::vec3();
 
 // Key press callback - Simply save the key that was pressed
 void Managers::CameraManager::KeyPressCallback(unsigned char c, int x, int y) {
@@ -148,6 +152,8 @@ void Managers::CameraManager::KeyPressCallback(unsigned char c, int x, int y) {
 		glutLeaveMainLoop();
 		break;
 	}
+	float translation_speed = 0.1f;
+	CAMERA_TRANSLATION = glm::vec3(KEY_D - KEY_A, KEY_Q - KEY_E, KEY_S - KEY_W) * translation_speed;
 }
 
 // Key release callback - Simply reset the key that was pressed
@@ -181,6 +187,8 @@ void Managers::CameraManager::KeyReleaseCallback(unsigned char c, int x, int y) 
 	default:
 		break;
 	}
+	float translation_speed = 0.1f;
+	CAMERA_TRANSLATION = glm::vec3(KEY_D - KEY_A, KEY_Q - KEY_E, KEY_S - KEY_W) * translation_speed;
 }
 
 // Handle mouse press
@@ -192,11 +200,21 @@ void Managers::CameraManager::MousePressCallback(int button, int state, int x, i
 // HANDLE mouse movement
 void Managers::CameraManager::MouseMoveCallback(int x, int y) {
 	glm::ivec2 current_mouse_position = glm::ivec2(x, y);
+	// Calculate mouse movement delta
 	glm::vec2 delta = glm::vec2(current_mouse_position - MOUSE_POSITION);
+
+	// Update mouse position
 	MOUSE_POSITION = current_mouse_position;
 
-	std::cout << "dX: " << delta.x << " dy: " << delta.y << std::endl;
-
-	MOUSE_ROTATION_X = glm::angleAxis<float>(glm::radians(delta.y) * 0.1f, glm::vec3(1, 0, 0));
-	MOUSE_ROTATION_Y = glm::angleAxis<float>(glm::radians(delta.x) * 0.1f, glm::vec3(0, 1, 0));
+	// Check if delta is large enough to set rotation
+	float rotation_speed = 0.1f;
+	if (delta.x > 1 || delta.x < -1 || delta.y > 1 || delta.y < -1) {
+		MOUSE_ROTATION_X = glm::angleAxis<float>(-rotation_speed * glm::radians(delta.x), LOCAL_UP);
+		MOUSE_ROTATION_Y = glm::angleAxis<float>(-rotation_speed * glm::radians(delta.y), LOCAL_RIGHT);
+	}
+	// Zero out the rotation if the delta is not large enough
+	else {
+		MOUSE_ROTATION_X = glm::vec3();
+		MOUSE_ROTATION_Y = glm::vec3();
+	}
 }

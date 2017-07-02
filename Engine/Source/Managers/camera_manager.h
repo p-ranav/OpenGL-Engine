@@ -124,6 +124,7 @@ namespace Managers
 		 * Static Variables keeping track of key presses
 		 */
 		static int KEY_W, KEY_A, KEY_S, KEY_D, KEY_Q, KEY_E;
+		static glm::vec3 CAMERA_TRANSLATION;
 
 		/**
 		 * Static Variables keeping track of mouse position and state
@@ -160,6 +161,24 @@ namespace Managers
 		* @param y Y value of mouse posiiton
 		*/
 		static void MouseMoveCallback(int x, int y);
+
+		// Constants
+		static const glm::vec3 LOCAL_FORWARD;
+		static const glm::vec3 LOCAL_UP;
+		static const glm::vec3 LOCAL_RIGHT;
+
+		// Queries
+		glm::vec3 Forward() const {
+			return rotation_ * LOCAL_FORWARD;
+		}
+
+		glm::vec3 Right() const {
+			return rotation_ * LOCAL_RIGHT;
+		}
+
+		glm::vec3 Up() const {
+			return rotation_ * LOCAL_UP;
+		}
 
 	protected:
 
