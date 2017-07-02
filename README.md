@@ -20,10 +20,14 @@ The following libraries are already incorporated in Engine\Dependencies\.
 
 ## Tests
 
-### Rotating Cube
+### Rotating Cube - BMP Texture Loading + Rotation
 
 ![Alt text](Tests/Cube/Screenshots/01.png?raw=true "Rotating Cube")
 
 ### Icosahedron Subdivision
 
 ![Alt text](Tests/Sphere/Screenshots/03.png?raw=true "Icosphere")
+
+# Earth - DDS Texture + Lighting
+
+![Alt text](Screenshots/01.png?raw=true "Earth")
