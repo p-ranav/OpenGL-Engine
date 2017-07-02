@@ -46,7 +46,7 @@ void Rendering::Models::Earth::Create(float radius, float slices, float stacks) 
 
 			positions_.push_back(glm::vec3(X, Y, Z) * radius);
 			normals_.push_back(glm::vec3(X, Y, Z));
-			texture_coordinates_.push_back(glm::vec2(U, V));
+			texture_coordinates_.push_back(glm::vec2(U, V) * glm::vec2(-1, 1));
 		}
 	}
 
