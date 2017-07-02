@@ -17,7 +17,7 @@ int main(int argc, char **argv)
 	engine->GetShaderManager()->CreateProgram("earth_shader", "Shaders\\earth_vertex_shader.glsl", "Shaders\\earth_fragment_shader.glsl");
 
 	// Setup Earth's Texture
-	unsigned int earth_texture_id = engine->GetTextureLoader()->LoadDDSTexture("Textures\\earth.dds");
+	unsigned int earth_texture_id = engine->GetTextureLoader()->LoadDDSTexture("Textures\\Earth.dds");
 
 	// Create the Cube and set its shader program
 	Rendering::Models::Earth* earth = new Rendering::Models::Earth();
