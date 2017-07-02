@@ -56,9 +56,9 @@ void Managers::ModelManager::Draw() {
 }
 
 // Call model.Draw() for each 3d model in the internal map
-void Managers::ModelManager::Draw(const glm::mat4& projection_matrix, const glm::mat4& view_matrix) {
+void Managers::ModelManager::Draw(Managers::CameraManager* camera) {
 	for (auto model : model_map_3d_)
-		model.second->Draw(projection_matrix, view_matrix);
+		model.second->Draw(camera);
 }
 
 void Managers::ModelManager::AddModel2D(const std::string& model_name, Rendering::ObjectInterface* object) {

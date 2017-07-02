@@ -31,7 +31,7 @@ namespace Rendering
 			* (2) Bind avo
 			* (3) Draw vertices
 			*/
-			virtual void Draw(const glm::mat4& projection_matrix, const glm::mat4& view_matrix) override final;
+			virtual void Draw(Managers::CameraManager* camera) override final;
 
 			/**
 			* Update rotation of the cube
@@ -44,6 +44,10 @@ namespace Rendering
 
 			/* List of indices in the icosphere */
 			std::vector<unsigned int> indices;
+
+			std::vector<glm::vec3> positions_;
+			std::vector<glm::vec3> normals_;
+			std::vector<glm::vec2> texture_coordinates_;
 		};
 	}
 }

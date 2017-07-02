@@ -48,6 +48,7 @@
     <ClInclude Include="Source\Rendering\Models\triangle.h" />
     <ClInclude Include="Source\Rendering\object.h" />
     <ClInclude Include="Source\Rendering\Texture\bmp_headers.h" />
+    <ClInclude Include="Source\Rendering\Texture\dds_headers.h" />
     <ClInclude Include="Source\Rendering\Texture\texture_loader.h" />
     <ClInclude Include="Source\Rendering\vertex_format.h" />
   </ItemGroup>
@@ -121,6 +122,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(ProjectDir)Dependencies\freeglut\include\GL\;$(ProjectDir)Dependencies\glew\include\;$(ProjectDir)Dependencies\glm\;$(ProjectDir)Dependencies\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>Dependencies\freeglut\lib;Dependencies\glew\lib;</AdditionalLibraryDirectories>

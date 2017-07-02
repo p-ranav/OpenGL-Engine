@@ -113,6 +113,9 @@
     <ClInclude Include="Source\Managers\camera_manager.h">
       <Filter>Managers</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Rendering\Texture\dds_headers.h">
+      <Filter>Rendering\Texture</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Source\Shaders\vertex_shader.glsl">

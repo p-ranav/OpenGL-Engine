@@ -1,6 +1,7 @@
 #pragma once
 // User-defined Headers
 #include "bmp_headers.h"
+#include "dds_headers.h"
 
 // External Headers
 #include "glew.h"
@@ -24,6 +25,12 @@ namespace Rendering
 		 * @param height Height of the texture
 		 */
 		unsigned int Load2DBMPTexture(const std::string& filename, unsigned int width, unsigned int height);
+
+		/**
+		* Loads a DDS texture from file
+		* @param filename Name of the texture file
+		*/
+		GLuint LoadDDSTexture(std::string filename);
 
 	private:
 		/**

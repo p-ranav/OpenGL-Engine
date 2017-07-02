@@ -69,7 +69,7 @@ namespace Managers
 		* Returns the camera position
 		* @return Current camera position
 		*/
-		glm::vec3 GetPosition() const;
+		glm::vec3 GetPosition();
 
 		/**
 		 * Translate the camera by some amount. If local is TRUE (default) then the translation should

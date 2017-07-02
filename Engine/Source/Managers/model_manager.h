@@ -31,11 +31,10 @@ namespace Managers
 		void Draw();
 
 		/**
-		* Every renderable object has a Draw call that takes a projection_matrix and view_matrix
-		* @param projection_matrix Projection Matrix of object
-		* @param view_matrix View Matrix for drawing
+		* Every renderable object has a Draw call that takes a camera object as input
+		* @param camera object which has the projection_matrix and the view matrix
 		*/
-		void Draw(const glm::mat4& projection_matrix, const glm::mat4& view_matrix);
+		void Draw(Managers::CameraManager* camera);
 
 		/**
 		* This method calls the Update() methods of each Object in

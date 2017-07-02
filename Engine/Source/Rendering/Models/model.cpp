@@ -8,7 +8,7 @@ Rendering::Models::Model::~Model() {
 
 // Draw methods will be overridden
 void Rendering::Models::Model::Draw() {}
-void Rendering::Models::Model::Draw(const glm::mat4& projection_matrix, const glm::mat4& view_matrix) {}
+void Rendering::Models::Model::Draw(Managers::CameraManager* camera) {}
 
 // Update method will be overridden
 void Rendering::Models::Model::Update() {}

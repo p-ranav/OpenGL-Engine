@@ -77,12 +77,12 @@ void Rendering::Models::Sphere::Create(float radius, float slices, float stacks)
 
 void Rendering::Models::Sphere::Update() {}
 
-void Rendering::Models::Sphere::Draw(const glm::mat4& projection_matrix, const glm::mat4& view_matrix) {
+void Rendering::Models::Sphere::Draw(Managers::CameraManager* camera) {
 	// Map shader variables
 	glUseProgram(program);
 
-	glUniformMatrix4fv(glGetUniformLocation(program, "view_matrix"), 1, false, &view_matrix[0][0]);
-	glUniformMatrix4fv(glGetUniformLocation(program, "projection_matrix"), 1, false, &projection_matrix[0][0]);
+	glUniformMatrix4fv(glGetUniformLocation(program, "view_matrix"), 1, false, &(camera->GetViewMatrix())[0][0]);
+	glUniformMatrix4fv(glGetUniformLocation(program, "projection_matrix"), 1, false, &(camera->GetProjectionMatrix())[0][0]);
 	glBindVertexArray(vao);
 	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(indices.size()), GL_UNSIGNED_INT, 0);

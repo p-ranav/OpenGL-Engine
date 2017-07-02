@@ -96,7 +96,7 @@ void Rendering::Models::Cube::Update() {
 }
 
 // Draw cube and incorporate rotation
-void Rendering::Models::Cube::Draw(const glm::mat4& projection_matrix, const glm::mat4& view_matrix) {
+void Rendering::Models::Cube::Draw(Managers::CameraManager* camera) {
 	// Map shader variables
 	glUseProgram(program);
 
@@ -107,8 +107,8 @@ void Rendering::Models::Cube::Draw(const glm::mat4& projection_matrix, const glm
 	glUniform1i(textureLocation, 0);
 
 	glUniform3f(glGetUniformLocation(program, "rotation"), rotation_sin.x, rotation_sin.y, rotation_sin.z);
-	glUniformMatrix4fv(glGetUniformLocation(program, "view_matrix"), 1, false, &view_matrix[0][0]);
-	glUniformMatrix4fv(glGetUniformLocation(program, "projection_matrix"), 1, false, &projection_matrix[0][0]);
+	glUniformMatrix4fv(glGetUniformLocation(program, "view_matrix"), 1, false, &(camera->GetViewMatrix())[0][0]);
+	glUniformMatrix4fv(glGetUniformLocation(program, "projection_matrix"), 1, false, &camera->GetProjectionMatrix()[0][0]);
 	glBindVertexArray(vao);
 	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
 }

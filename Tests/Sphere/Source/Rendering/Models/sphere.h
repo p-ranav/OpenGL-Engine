@@ -31,7 +31,7 @@ namespace Rendering
 			* (2) Bind avo
 			* (3) Draw vertices
 			*/
-			virtual void Draw(const glm::mat4& projection_matrix, const glm::mat4& view_matrix) override final;
+			virtual void Draw(Managers::CameraManager* camera) override final;
 
 			/**
 			* Update rotation of the cube

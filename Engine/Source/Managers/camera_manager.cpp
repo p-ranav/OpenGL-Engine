@@ -41,7 +41,7 @@ void Managers::CameraManager::SetPosition(const glm::vec3& position) {
 }
 
 // Returns the camera position
-glm::vec3 Managers::CameraManager::GetPosition() const {
+glm::vec3 Managers::CameraManager::GetPosition() {
 	return position_;
 }
 

@@ -2,6 +2,7 @@
 
 // User-defined Headers
 #include "vertex_format.h"
+#include "..\Managers\camera_manager.h"
 
 // External Headers
 #include "glew.h"
@@ -31,11 +32,10 @@ namespace Rendering
 		virtual void Draw() = 0;
 
 		/**
-		* Every renderable object has a Draw call that takes a projection_matrix and view_matrix
-		* @param projection_matrix Projection Matrix of object
-		* @param view_matrix View Matrix for drawing
+		* Every renderable object has a Draw call that takes a camera object as input
+		* @param camera object which has the projection_matrix and the view matrix
 		*/
-		virtual void Draw(const glm::mat4& projection_matrix, const glm::mat4& view_matrix) = 0;
+		virtual void Draw(Managers::CameraManager * camera) = 0;
 
 		/**
 		 * Every renderable object has a Update call

@@ -42,8 +42,7 @@ void Managers::SceneManager::NotifyDisplayFrame()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glClearColor(0.0, 0.0, 0.0, 1.0);
 	model_manager_->Draw();
-	model_manager_->Draw(camera_manager_->GetProjectionMatrix(), 
-		camera_manager_->GetViewMatrix());
+	model_manager_->Draw(camera_manager_);
 }
 
 // Nothing to do here (for now)
