@@ -27,10 +27,16 @@
     <Filter Include="Textures">
       <UniqueIdentifier>{a15d57bf-a90b-439f-a867-5cb51558150b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Utilities">
+      <UniqueIdentifier>{145e6477-78f4-4d0f-8fd4-611a237985ab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Rendering\Models\cube.h">
       <Filter>Rendering\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utilities\utilities.h">
+      <Filter>Utilities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

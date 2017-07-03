@@ -3,6 +3,7 @@
 // User-defined Headers
 #include "Managers\engine_manager.h"
 #include "Rendering\Models\cube.h"
+#include "Utilities\utilities.h"
 
 int main(int argc, char **argv) 
 {
@@ -21,7 +22,7 @@ int main(int argc, char **argv)
 	cube->SetProgram(engine->GetShaderManager()->GetShader("cubeShader"));
 	cube->Create();
 
-	unsigned int texture = Load2DBMPTexture("Textures\\Crate.bmp", 256, 256);
+	unsigned int texture = Rendering::Utilities::LoadBMPTexture("Textures\\Crate.bmp");
 	cube->SetTexture("Crate", texture);
 
 	// Add cube to Engine's Model Manager

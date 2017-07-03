@@ -24,6 +24,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Rendering\Models\cube.h" />
+    <ClInclude Include="Source\Utilities\utilities.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Source\Shaders\cube_fragment_shader.glsl" />

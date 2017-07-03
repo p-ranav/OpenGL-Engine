@@ -4,13 +4,9 @@
 #include "Rendering\Models\model.h"
 #include "Managers\camera_manager.h"
 
-// External Headers
-#include "spdlog\spdlog.h"
-
 // System Headers
 #include <time.h>
 #include <stdarg.h>
-#include <fstream>
 
 // Bitmap Texture Loading Functions
 unsigned int Load2DBMPTexture(const std::string& filename, unsigned int width, unsigned int height);
