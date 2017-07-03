@@ -16,6 +16,7 @@ The following libraries are already incorporated in Engine\Dependencies\.
 * [FreeGLUT](http://freeglut.sourceforge.net/)
 * [GLEW](http://glew.sourceforge.net/)
 * [OpenGL Mathematics (GLM)](http://glm.g-truc.net/0.9.8/index.html)
+* [SOIL2](https://bitbucket.org/SpartanJ/soil2)
 * [Spdlog C++ Logging Library](https://github.com/gabime/spdlog)
 
 ## Tests
