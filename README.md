@@ -31,3 +31,13 @@ The following libraries are already incorporated in Engine\Dependencies\.
 # Earth - DDS Texture + Lighting + Cubemap Skybox
 
 ![Alt text](Tests/Earth/Screenshots/01.png?raw=true "Earth")
+
+# Earth-Moon-Sun System
+
+* Multiple icospheres for the celestial bodies
+* Loads DDS textures for Earth and Moon
+* Implements Emissive + Ambient + Diffuse + Specular Lighting
+* Cube Map for Milky Way Skybox
+* Rotation of the bodies directly affecting the lighting
+
+![Alt text](Tests/Solar-System/Screenshots/01.png?raw=true "Earth")
