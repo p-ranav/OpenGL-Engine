@@ -28,5 +28,6 @@
     <ClCompile Include="Source\Rendering\Models\sphere.cpp">
       <Filter>Rendering\Models</Filter>
     </ClCompile>
+    <ClCompile Include="Source\main.cpp" />
   </ItemGroup>
 </Project>

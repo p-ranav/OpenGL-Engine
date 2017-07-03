@@ -18,9 +18,6 @@ bool Managers::EngineManager::Init() {
 	// Initialize GLUT
 	Core::Init::InitGLUT::Init(window, context, framebuffer_info);
 
-	// Setup Texture Loader
-	texture_loader_ = new Rendering::TextureLoader();
-
 	// Setup Scene Manager
 	scene_manager_ = new Managers::SceneManager();
 	Core::Init::InitGLUT::SetListener(scene_manager_);
@@ -76,17 +73,9 @@ Managers::CameraManager* Managers::EngineManager::GetCameraManager() const {
 	return camera_manager_;
 }
 
-// Return Texture Loader
-Rendering::TextureLoader* Managers::EngineManager::GetTextureLoader() const {
-	return texture_loader_;
-}
-
 // Cleanup managers
 Managers::EngineManager::~EngineManager() {
 	// Delete Scene Manager
 	if (scene_manager_)
 		delete scene_manager_;
-	// Delete Texture Loader
-	if (texture_loader_)
-		delete texture_loader_;
 }

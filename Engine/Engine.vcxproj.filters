@@ -28,9 +28,6 @@
     <ClCompile Include="Source\Managers\engine_manager.cpp">
       <Filter>Managers</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Rendering\Texture\texture_loader.cpp">
-      <Filter>Rendering\Texture</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Managers\camera_manager.cpp">
       <Filter>Managers</Filter>
     </ClCompile>
@@ -104,16 +101,10 @@
     <ClInclude Include="Source\Managers\engine_manager.h">
       <Filter>Managers</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Rendering\Texture\bmp_headers.h">
-      <Filter>Rendering\Texture</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Rendering\Texture\texture_loader.h">
-      <Filter>Rendering\Texture</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Managers\camera_manager.h">
       <Filter>Managers</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Rendering\Texture\dds_headers.h">
+    <ClInclude Include="Source\Rendering\Texture\stb_image.h">
       <Filter>Rendering\Texture</Filter>
     </ClInclude>
   </ItemGroup>

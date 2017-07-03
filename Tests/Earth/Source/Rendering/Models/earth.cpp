@@ -107,7 +107,7 @@ void Rendering::Models::Earth::Update() {}
 void Rendering::Models::Earth::Draw(Managers::CameraManager* camera) {
 	const glm::vec4 white(1);
 	const glm::vec4 black(0);
-	const glm::vec4 ambient(0.1f, 0.1f, 0.1f, 1.0f);
+	const glm::vec4 ambient(1.0f, 1.0f, 1.0f, 1.0f);
 
 	// Map shader variables
 	glUseProgram(program);
@@ -128,7 +128,7 @@ void Rendering::Models::Earth::Draw(Managers::CameraManager* camera) {
 
 	// Model View Projection Matrix
 	modelMatrix = glm::rotate(glm::radians(0.0f), glm::vec3(0, 1, 0)) * glm::scale(glm::vec3(12.756f));
-	glm::mat4 mvp = camera->GetProjectionMatrix() * camera->GetViewMatrix();
+	glm::mat4 mvp = camera->GetProjectionMatrix() * camera->GetViewMatrix() * modelMatrix;
 	glUniformMatrix4fv(glGetUniformLocation(program, "model_view_projection_matrix"), 1, GL_FALSE, glm::value_ptr(mvp));
 	glUniformMatrix4fv(glGetUniformLocation(program, "model_matrix"), 1, GL_FALSE, glm::value_ptr(modelMatrix));
 	glUniform4fv(glGetUniformLocation(program, "eye_position_w"), 1, glm::value_ptr(eyePosW));

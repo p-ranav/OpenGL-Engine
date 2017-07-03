@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Rendering">
+      <UniqueIdentifier>{2a7f37ea-4fab-4dd2-b532-9fa0c54520ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rendering\Models">
+      <UniqueIdentifier>{99c5c6f2-1298-4cd5-8978-f4c39b1409ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{1550ce37-ab49-497a-b444-1dcfdff3e606}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\Rendering\Models\solar_system.cpp">
+      <Filter>Rendering\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\Rendering\Models\skybox.cpp">
+      <Filter>Rendering\Models</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Rendering\Models\solar_system.h">
+      <Filter>Rendering\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Rendering\Models\skybox.h">
+      <Filter>Rendering\Models</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Source\Shaders\earth_fragment_shader.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Source\Shaders\earth_vertex_shader.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Source\Shaders\skybox_fragment_shader.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Source\Shaders\skybox_vertex_shader.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Source\Shaders\sun_fragment_shader.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Source\Shaders\sun_vertex_shader.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+  </ItemGroup>
+</Project>

@@ -112,3 +112,129 @@ void Rendering::Models::Cube::Draw(Managers::CameraManager* camera) {
 	glBindVertexArray(vao);
 	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
 }
+
+namespace Rendering
+{
+	namespace Texture
+	{
+		/**
+		* BMPHeader Structure
+		*/
+		struct BMPHeader
+		{
+			unsigned char type[2];
+			int f_length;
+			short reserved1;
+			short reserved2;
+			int off_bits;
+		};
+
+		/**
+		* BMPHeader Info
+		*/
+		struct BMPHeaderInfo
+		{
+			int size;
+			int width;
+			int height;
+			short planes;
+			short bit_count;
+			int compresion;
+			int size_image;
+			int x_pexels_per_meter;
+			int y_pexels_per_meter;
+			int clr_used;
+			int clr_important;
+		};
+	}
+}
+
+// Loead BMP texture from file
+unsigned int Load2DBMPTexture(const std::string& filename, unsigned int width, unsigned int height) {
+	unsigned char* data;
+	// Internal helper
+	LoadBMPFromFile(filename, width, height, data);
+
+	// Create the OpenGL texture
+	unsigned int gl_texture_object;
+	glGenTextures(1, &gl_texture_object);
+	glBindTexture(GL_TEXTURE_2D, gl_texture_object);
+
+	// Filtering
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+	float maxAnisotropy;
+	glGetFloatv(GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT, &maxAnisotropy);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY_EXT, maxAnisotropy);
+
+	// When we work with textures of sizes not divisible by 4 we have to use the line reader
+	// which loads the textures in OpenGL so as it can work with a 1 alligned memory (default is 4)
+	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+
+	// Generates texture
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+
+	// Eliminates the array from the RAM
+	delete data;
+
+	// Creates the mipmap hierarchy
+	glGenerateMipmap(GL_TEXTURE_2D);
+
+	// Returns the texture object
+	return gl_texture_object;
+}
+
+// Internal helper for loading BMP
+void LoadBMPFromFile(const std::string& filename, unsigned int& width, unsigned int& height, unsigned char*& data) {
+	// Read from file
+	std::ifstream file(filename.c_str(), std::ios::in | std::ios::binary);
+	if (!file.good()) {
+		spdlog::get("console")->error("Cannot open texture file {0}", filename);
+		width = 0;
+		height = 0;
+		return;
+	}
+
+	// Reads the headers
+	Rendering::Texture::BMPHeader h; 
+	Rendering::Texture::BMPHeaderInfo h_info;
+	file.read((char*)&(h.type[0]), sizeof(char));
+	file.read((char*)&(h.type[1]), sizeof(char));
+	file.read((char*)&(h.f_length), sizeof(int));
+	file.read((char*)&(h.reserved1), sizeof(short));
+	file.read((char*)&(h.reserved2), sizeof(short));
+	file.read((char*)&(h.off_bits), sizeof(int));
+	file.read((char*)&(h_info), sizeof(Rendering::Texture::BMPHeaderInfo));
+
+	// Assigning memory (a pixel has 3 components, R, G, B)
+	data = new unsigned char[h_info.width*h_info.height * 3];
+
+	// Check if the line contains 4 byte groups
+	long padd = 0;
+	if ((h_info.width * 3) % 4 != 0) padd = 4 - (h_info.width * 3) % 4;
+
+	width = h_info.width;
+	height = h_info.height;
+
+	long pointer;
+	unsigned char r, g, b;
+
+	// Reading the matrix
+	for (unsigned int i = 0; i < height; i++) {
+		for (unsigned int j = 0; j < width; j++) {
+			// The BMP component order in the pixel is b, g, r (in Windows)
+			file.read((char*)&b, 1);
+			file.read((char*)&g, 1);
+			file.read((char*)&r, 1);
+
+			pointer = (i*width + j) * 3;
+			data[pointer] = r;
+			data[pointer + 1] = g;
+			data[pointer + 2] = b;
+		}
+		file.seekg(padd, std::ios_base::cur);
+	}
+	file.close();
+}

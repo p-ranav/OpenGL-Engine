@@ -34,7 +34,7 @@ namespace Rendering
 			virtual void Draw(Managers::CameraManager* camera) override final;
 
 			/**
-			* Update rotation of the cube
+			* Update the Earth
 			*/
 			virtual void Update() override final;
 
@@ -45,8 +45,13 @@ namespace Rendering
 			/* List of indices in the icosphere */
 			std::vector<unsigned int> indices;
 
+			/* Vertex positions */
 			std::vector<glm::vec3> positions_;
+
+			/* Vertex normals */
 			std::vector<glm::vec3> normals_;
+
+			/* Texture coordinates */
 			std::vector<glm::vec2> texture_coordinates_;
 		};
 	}
