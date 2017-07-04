@@ -1,11 +1,11 @@
-#version 450 core
+#version 330 core
 
-layout(location = 0) out vec4 out_color;
-uniform sampler2D sun;
-in vec2 texcoord;
+// Input color from the vertex program.
+uniform vec4 color;
+
+layout (location=0) out vec4 out_color;
 
 void main()
 {
-	vec4 color = texture(sun, texcoord);
     out_color = color;
 }

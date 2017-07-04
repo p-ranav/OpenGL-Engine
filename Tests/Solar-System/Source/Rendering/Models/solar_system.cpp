@@ -108,9 +108,9 @@ void Rendering::Models::SolarSystem::Update() {
 	previous_ticks_ = current_ticks_;
 	float delta_time = delta_ticks / (float)CLOCKS_PER_SEC;
 
-	const float earth_rotation_rate = 5.0f;
-	const float moon_rotation_rate = 12.5f;
-	const float sun_rotation_rate = 2.0f;
+	const float earth_rotation_rate = 1.0f;
+	const float moon_rotation_rate = 1.0f;
+	const float sun_rotation_rate = 1.0f;
 
 	earth_rotation_ += earth_rotation_rate * delta_time;
 	earth_rotation_ = fmod(earth_rotation_, 360.0f);
@@ -132,15 +132,14 @@ void Rendering::Models::SolarSystem::Draw(Managers::CameraManager* camera) {
 
 	glBindVertexArray(vao);
 	
-	glBindTexture(GL_TEXTURE_2D, this->GetTexture("sun"));
 	glUseProgram(sun_shader_program);
 
 	// Drawing the Sun
-	glm::mat4 modelMatrix = glm::rotate(glm::radians(sun_rotation_), glm::vec3(0, -1, 0)) * glm::translate(glm::vec3(778, 0, 0))
-		* glm::scale(glm::vec3(100.756f));
+	glm::mat4 modelMatrix = /*glm::rotate(glm::radians(sun_rotation_), glm::vec3(0, -1, 0)) * */glm::scale(glm::vec3(100.756f));
 	glm::mat4 mvp = camera->GetProjectionMatrix() * camera->GetViewMatrix() * modelMatrix;
 	GLuint uniformMVP = glGetUniformLocation(sun_shader_program, "MVP");
 	glUniformMatrix4fv(uniformMVP, 1, GL_FALSE, glm::value_ptr(mvp));
+	glUniform4fv(glGetUniformLocation(sun_shader_program, "color"), 1, glm::value_ptr(white));
 	glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(indices.size()), GL_UNSIGNED_INT, BUFFER_OFFSET(0));
 
 	// Drawing the Earth
@@ -155,7 +154,8 @@ void Rendering::Models::SolarSystem::Draw(Managers::CameraManager* camera) {
 	glUniform4fv(glGetUniformLocation(earth_shader_program, "ambient"), 1, glm::value_ptr(ambient));
 
 	// Model View Projection Matrix
-	modelMatrix = glm::rotate(glm::radians(earth_rotation_), glm::vec3(0, 1, 0)) * glm::scale(glm::vec3(12.756f));
+	modelMatrix = /*glm::rotate(glm::radians(earth_rotation_), glm::vec3(0, 1, 0)) * */glm::translate(glm::vec3(150.0f, 0, 0))
+		* glm::scale(glm::vec3(12.756f));
 	glm::vec4 eyePosW = glm::vec4(camera->GetPosition(), 1);
 	mvp = camera->GetProjectionMatrix() * camera->GetViewMatrix() * modelMatrix; 
 	glUniformMatrix4fv(glGetUniformLocation(earth_shader_program, "model_view_projection_matrix"), 1, GL_FALSE, glm::value_ptr(mvp));
@@ -173,8 +173,76 @@ void Rendering::Models::SolarSystem::Draw(Managers::CameraManager* camera) {
 	// Draw the Moon
 	glBindTexture(GL_TEXTURE_2D, this->GetTexture("moon"));
 
-	modelMatrix = glm::rotate(glm::radians(moon_rotation_), glm::vec3(0, 1, 0)) * 
-		glm::translate(glm::vec3(20, 0, 0)) * glm::scale(glm::vec3(3.476f));
+	modelMatrix = /*glm::rotate(glm::radians(moon_rotation_), glm::vec3(0, 1, 0)) * */
+		glm::translate(glm::vec3(170.0f, 0, 0)) * glm::scale(glm::vec3(3.476f));
+	mvp = camera->GetProjectionMatrix() * camera->GetViewMatrix() * modelMatrix;
+
+	glUniformMatrix4fv(glGetUniformLocation(earth_shader_program, "model_view_projection_matrix"), 1, GL_FALSE, glm::value_ptr(mvp));
+	glUniformMatrix4fv(glGetUniformLocation(earth_shader_program, "model_matrix"), 1, GL_FALSE, glm::value_ptr(modelMatrix));
+
+	glUniform4fv(glGetUniformLocation(earth_shader_program, "material_emissive"), 1, glm::value_ptr(black));
+	glUniform4fv(glGetUniformLocation(earth_shader_program, "material_diffuse"), 1, glm::value_ptr(white));
+	glUniform4fv(glGetUniformLocation(earth_shader_program, "material_specular"), 1, glm::value_ptr(white));
+	glUniform1f(glGetUniformLocation(earth_shader_program, "material_shininess"), 5.0f);
+
+	glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(indices.size()), GL_UNSIGNED_INT, BUFFER_OFFSET(0));
+
+	// Draw Mercury
+	glBindTexture(GL_TEXTURE_2D, this->GetTexture("mercury"));
+
+	modelMatrix = /*glm::rotate(glm::radians(moon_rotation_), glm::vec3(0, 1, 0)) * */
+		glm::translate(glm::vec3(50.0f, 0, 0)) * glm::scale(glm::vec3(3.476f));
+	mvp = camera->GetProjectionMatrix() * camera->GetViewMatrix() * modelMatrix;
+
+	glUniformMatrix4fv(glGetUniformLocation(earth_shader_program, "model_view_projection_matrix"), 1, GL_FALSE, glm::value_ptr(mvp));
+	glUniformMatrix4fv(glGetUniformLocation(earth_shader_program, "model_matrix"), 1, GL_FALSE, glm::value_ptr(modelMatrix));
+
+	glUniform4fv(glGetUniformLocation(earth_shader_program, "material_emissive"), 1, glm::value_ptr(black));
+	glUniform4fv(glGetUniformLocation(earth_shader_program, "material_diffuse"), 1, glm::value_ptr(white));
+	glUniform4fv(glGetUniformLocation(earth_shader_program, "material_specular"), 1, glm::value_ptr(white));
+	glUniform1f(glGetUniformLocation(earth_shader_program, "material_shininess"), 5.0f);
+
+	glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(indices.size()), GL_UNSIGNED_INT, BUFFER_OFFSET(0));
+
+	// Draw Venus
+	glBindTexture(GL_TEXTURE_2D, this->GetTexture("venus"));
+
+	modelMatrix = /*glm::rotate(glm::radians(moon_rotation_), glm::vec3(0, 1, 0)) * */
+		glm::translate(glm::vec3(75.0f, 0, 0)) * glm::scale(glm::vec3(9.476f));
+	mvp = camera->GetProjectionMatrix() * camera->GetViewMatrix() * modelMatrix;
+
+	glUniformMatrix4fv(glGetUniformLocation(earth_shader_program, "model_view_projection_matrix"), 1, GL_FALSE, glm::value_ptr(mvp));
+	glUniformMatrix4fv(glGetUniformLocation(earth_shader_program, "model_matrix"), 1, GL_FALSE, glm::value_ptr(modelMatrix));
+
+	glUniform4fv(glGetUniformLocation(earth_shader_program, "material_emissive"), 1, glm::value_ptr(black));
+	glUniform4fv(glGetUniformLocation(earth_shader_program, "material_diffuse"), 1, glm::value_ptr(white));
+	glUniform4fv(glGetUniformLocation(earth_shader_program, "material_specular"), 1, glm::value_ptr(white));
+	glUniform1f(glGetUniformLocation(earth_shader_program, "material_shininess"), 5.0f);
+
+	glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(indices.size()), GL_UNSIGNED_INT, BUFFER_OFFSET(0));
+
+	// Draw Mars
+	glBindTexture(GL_TEXTURE_2D, this->GetTexture("mars"));
+
+	modelMatrix = /*glm::rotate(glm::radians(moon_rotation_), glm::vec3(0, 1, 0)) * */
+		glm::translate(glm::vec3(250.0f, 0, 0)) * glm::scale(glm::vec3(10.476f));
+	mvp = camera->GetProjectionMatrix() * camera->GetViewMatrix() * modelMatrix;
+
+	glUniformMatrix4fv(glGetUniformLocation(earth_shader_program, "model_view_projection_matrix"), 1, GL_FALSE, glm::value_ptr(mvp));
+	glUniformMatrix4fv(glGetUniformLocation(earth_shader_program, "model_matrix"), 1, GL_FALSE, glm::value_ptr(modelMatrix));
+
+	glUniform4fv(glGetUniformLocation(earth_shader_program, "material_emissive"), 1, glm::value_ptr(black));
+	glUniform4fv(glGetUniformLocation(earth_shader_program, "material_diffuse"), 1, glm::value_ptr(white));
+	glUniform4fv(glGetUniformLocation(earth_shader_program, "material_specular"), 1, glm::value_ptr(white));
+	glUniform1f(glGetUniformLocation(earth_shader_program, "material_shininess"), 5.0f);
+
+	glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(indices.size()), GL_UNSIGNED_INT, BUFFER_OFFSET(0));
+
+	// Draw Jupiter
+	glBindTexture(GL_TEXTURE_2D, this->GetTexture("jupiter"));
+
+	modelMatrix = /*glm::rotate(glm::radians(moon_rotation_), glm::vec3(0, 1, 0)) * */
+		glm::translate(glm::vec3(600.0f, 0, 0)) * glm::scale(glm::vec3(96.476f));
 	mvp = camera->GetProjectionMatrix() * camera->GetViewMatrix() * modelMatrix;
 
 	glUniformMatrix4fv(glGetUniformLocation(earth_shader_program, "model_view_projection_matrix"), 1, GL_FALSE, glm::value_ptr(mvp));

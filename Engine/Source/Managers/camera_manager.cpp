@@ -223,6 +223,7 @@ void Managers::CameraManager::MouseMoveCallback(int x, int y) {
 	}
 }
 
+// Special Key Press Callback
 void Managers::CameraManager::SpecialKeyPressCallback(int key, int x, int y)
 {
 	switch (key)
@@ -230,13 +231,13 @@ void Managers::CameraManager::SpecialKeyPressCallback(int key, int x, int y)
 	case GLUT_KEY_SHIFT_L:
 	case GLUT_KEY_SHIFT_R:
 	{
-		std::cout << "SHIFT KEY PRESSED!" << std::endl;
 		KEY_SHIFT = 1;
 	}
 	break;
 	}
 }
 
+// Special Key Release Callback
 void Managers::CameraManager::SpecialKeyReleaseCallback(int key, int x, int y)
 {
 	switch (key)
@@ -244,7 +245,6 @@ void Managers::CameraManager::SpecialKeyReleaseCallback(int key, int x, int y)
 	case GLUT_KEY_SHIFT_L:
 	case GLUT_KEY_SHIFT_R:
 	{
-		std::cout << "SHIFT KEY RELEASED!" << std::endl;
 		KEY_SHIFT = 0;
 	}
 	break;

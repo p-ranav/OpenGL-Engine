@@ -13,7 +13,7 @@ int main(int argc, char **argv)
 	engine->Init();
 
 	// Setup camera's initial position
-	engine->GetCameraManager()->SetPosition(glm::vec3(0, 0, 10));
+	engine->GetCameraManager()->SetPosition(glm::vec3(0, 0, 75));
 
 	// Setup Earth's Vertex and Fragment Shaders
 	engine->GetShaderManager()->CreateProgram("earth_shader", "Shaders\\earth_vertex_shader.glsl", "Shaders\\earth_fragment_shader.glsl");
@@ -45,11 +45,23 @@ int main(int argc, char **argv)
 	GLuint sun_texture = Rendering::Utilities::LoadDDSTexture("Textures\\Sun.dds");
 	system->SetTexture("sun", sun_texture);
 
+	GLuint mercury_texture = Rendering::Utilities::LoadDDSTexture("Textures\\Mercury.dds");
+	system->SetTexture("mercury", mercury_texture);
+
+	GLuint venus_texture = Rendering::Utilities::LoadDDSTexture("Textures\\Venus.dds");
+	system->SetTexture("venus", venus_texture);
+
 	GLuint earth_texture = Rendering::Utilities::LoadDDSTexture("Textures\\Earth.dds");
 	system->SetTexture("earth", earth_texture);
 
 	GLuint moon_texture = Rendering::Utilities::LoadDDSTexture("Textures\\Moon.dds");
 	system->SetTexture("moon", moon_texture);
+
+	GLuint mars_texture = Rendering::Utilities::LoadDDSTexture("Textures\\Mars.dds");
+	system->SetTexture("mars", mars_texture);
+
+	GLuint jupiter_texture = Rendering::Utilities::LoadDDSTexture("Textures\\Jupiter.dds");
+	system->SetTexture("jupiter", jupiter_texture);
 
 	// Set the Earth's Program
 	system->SetProgram(engine->GetShaderManager()->GetShader("earth_shader"));
