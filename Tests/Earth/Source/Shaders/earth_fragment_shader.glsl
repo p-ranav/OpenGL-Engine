@@ -40,6 +40,8 @@ void main() {
     float RdotV = max(dot(R, V), 0);
     float NdotH = max(dot(N, H), 0);
     vec4 specular = pow( RdotV, material_shininess) * light_color * material_specular;
+
+	// NOTE: Not using Specular Lighting for this Test - Much nicer without it
     
-    out_color = (emissive + ambient + diffuse + specular) * texture(earth_texture, v2f_texture_coordinates);
+    out_color = (emissive + ambient + diffuse) * texture(earth_texture, v2f_texture_coordinates);
 }

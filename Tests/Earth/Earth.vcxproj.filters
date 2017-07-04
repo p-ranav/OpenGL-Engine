@@ -1,31 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <None Include="Source\Shaders\earth_fragment_shader.glsl">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="Source\Shaders\earth_vertex_shader.glsl">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="Source\Shaders\skybox_fragment_shader.glsl">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="Source\Shaders\skybox_vertex_shader.glsl">
-      <Filter>Shaders</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Filter Include="Rendering">
-      <UniqueIdentifier>{051fcbe0-3ffe-4d37-b696-150c03733bcd}</UniqueIdentifier>
+      <UniqueIdentifier>{2a7f37ea-4fab-4dd2-b532-9fa0c54520ee}</UniqueIdentifier>
     </Filter>
     <Filter Include="Rendering\Models">
-      <UniqueIdentifier>{8076bf6b-488a-4a81-8716-652dd0377a77}</UniqueIdentifier>
+      <UniqueIdentifier>{99c5c6f2-1298-4cd5-8978-f4c39b1409ea}</UniqueIdentifier>
     </Filter>
     <Filter Include="Shaders">
-      <UniqueIdentifier>{1e03353d-831f-46d7-a793-4a68ec818c66}</UniqueIdentifier>
+      <UniqueIdentifier>{1550ce37-ab49-497a-b444-1dcfdff3e606}</UniqueIdentifier>
     </Filter>
     <Filter Include="Utilities">
-      <UniqueIdentifier>{ad974c89-706c-4282-9627-9a6a985beace}</UniqueIdentifier>
+      <UniqueIdentifier>{e0cd3ba9-17e8-473a-96c2-14de6402c985}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -44,8 +30,31 @@
     <ClInclude Include="Source\Rendering\Models\skybox.h">
       <Filter>Rendering\Models</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Utilities\stb_image.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
     <ClInclude Include="Source\Utilities\utilities.h">
       <Filter>Utilities</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Source\Shaders\earth_fragment_shader.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Source\Shaders\earth_vertex_shader.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Source\Shaders\skybox_fragment_shader.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Source\Shaders\skybox_vertex_shader.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Source\Shaders\sun_fragment_shader.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Source\Shaders\sun_vertex_shader.glsl">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

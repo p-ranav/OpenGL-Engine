@@ -18,26 +18,10 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Source\main.cpp" />
-    <ClCompile Include="Source\Rendering\Models\earth.cpp" />
-    <ClCompile Include="Source\Rendering\Models\skybox.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Source\Shaders\earth_fragment_shader.glsl" />
-    <None Include="Source\Shaders\earth_vertex_shader.glsl" />
-    <None Include="Source\Shaders\skybox_fragment_shader.glsl" />
-    <None Include="Source\Shaders\skybox_vertex_shader.glsl" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Source\Rendering\Models\earth.h" />
-    <ClInclude Include="Source\Rendering\Models\skybox.h" />
-    <ClInclude Include="Source\Utilities\utilities.h" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{0505821C-DB26-4858-9CAD-292F36EDB40D}</ProjectGuid>
-    <RootNamespace>ModelsRotatingCube</RootNamespace>
+    <ProjectGuid>{1DBB78AD-0F29-4DDD-ABB3-E41EE0D6F68D}</ProjectGuid>
+    <RootNamespace>SolarSystem</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -93,11 +77,10 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)Engine\Dependencies\freeglut\include\GL\;$(SolutionDir)Engine\Dependencies\glew\include\;$(SolutionDir)Engine\Dependencies\glm\;$(SolutionDir)Engine\Dependencies\;$(SolutionDir)Tests\Earth\Source;$(SolutionDir)Engine\Dependencies\soil2\include\;$(SolutionDir)Engine\Source</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)Engine\Source;$(SolutionDir)Engine\Dependencies\freeglut\include\GL\;$(SolutionDir)Engine\Dependencies\glew\include\;$(SolutionDir)Engine\Dependencies\glm\;$(SolutionDir)Engine\Dependencies\;$(SolutionDir)Tests\Earth\Source;$(SolutionDir)Engine\Dependencies\soil2\include\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(TargetDir);$(SolutionDir)Engine\Dependencies\freeglut\lib\;$(SolutionDir)Engine\Dependencies\glew\lib\;$(SolutionDir)Engine\Dependencies\soil2\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(TargetDir);$(SolutionDir)Engine\Dependencies\freeglut\lib\;$(SolutionDir)Engine\Dependencies\glew\lib\;$(SolutionDir)Engine\Dependencies\soil2\lib\</AdditionalLibraryDirectories>
       <AdditionalDependencies>soil2.lib;opengl32.lib;freeglut.lib;glew32.lib;Engine.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
@@ -138,6 +121,25 @@ xcopy /Y "$(ProjectDir)Source\Textures\*" "$(TargetDir)Textures\*"</Command>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\Rendering\Models\skybox.cpp" />
+    <ClCompile Include="Source\Rendering\Models\earth.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Rendering\Models\skybox.h" />
+    <ClInclude Include="Source\Rendering\Models\earth.h" />
+    <ClInclude Include="Source\Utilities\stb_image.h" />
+    <ClInclude Include="Source\Utilities\utilities.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Source\Shaders\earth_fragment_shader.glsl" />
+    <None Include="Source\Shaders\earth_vertex_shader.glsl" />
+    <None Include="Source\Shaders\skybox_fragment_shader.glsl" />
+    <None Include="Source\Shaders\skybox_vertex_shader.glsl" />
+    <None Include="Source\Shaders\sun_fragment_shader.glsl" />
+    <None Include="Source\Shaders\sun_vertex_shader.glsl" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

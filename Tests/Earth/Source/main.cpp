@@ -13,10 +13,11 @@ int main(int argc, char **argv)
 	engine->Init();
 
 	// Setup camera's initial position
-	engine->GetCameraManager()->SetPosition(glm::vec3(0, 0, 10));
+	engine->GetCameraManager()->SetPosition(glm::vec3(0, 0, 300));
 
 	// Setup Earth's Vertex and Fragment Shaders
 	engine->GetShaderManager()->CreateProgram("earth_shader", "Shaders\\earth_vertex_shader.glsl", "Shaders\\earth_fragment_shader.glsl");
+	engine->GetShaderManager()->CreateProgram("sun_shader", "Shaders\\sun_vertex_shader.glsl", "Shaders\\sun_fragment_shader.glsl");
 	engine->GetShaderManager()->CreateProgram("skybox_shader", "Shaders\\skybox_vertex_shader.glsl", "Shaders\\skybox_fragment_shader.glsl");
 
 	// Create the skybox and set its shader program
@@ -39,21 +40,27 @@ int main(int argc, char **argv)
 	skybox->Create();
 
 	// Create the Earth and set its shader program
-	Rendering::Models::Earth* earth = new Rendering::Models::Earth();
+	Rendering::Models::Earth* system = new Rendering::Models::Earth();
+
+	std::map<std::string, std::string> textures = {
+		std::make_pair("sun", "Textures\\Sun.dds"),
+		std::make_pair("earth", "Textures\\Earth.dds"),
+		std::make_pair("moon", "Textures\\Moon.dds"),
+	};
+
+	// Load and Set Textures from Textures Map
+	for (auto const& texture : textures)
+		system->SetTexture(texture.first, Rendering::Utilities::LoadDDSTexture(texture.second));
 
 	// Set the Earth's Program
-	earth->SetProgram(engine->GetShaderManager()->GetShader("earth_shader"));
-	
-	// Setup Earth's Texture
-	GLuint earth_texture = Rendering::Utilities::LoadDDSTexture("Textures\\Earth.dds");
-	earth->SetTexture("earth", earth_texture);
+	system->SetProgram(engine->GetShaderManager()->GetShader("earth_shader"));
 
 	// Create a icosphere of radius 1 with 32 slices and 32 stacks
-	earth->Create(0.3f, 32, 32);
+	system->Create(0.3f, 32, 32);
 
 	// Add cube to Engine's Model Manager
 	engine->GetModelManager()->AddModel3D("skybox", skybox);
-	engine->GetModelManager()->AddModel3D("earth", earth);
+	engine->GetModelManager()->AddModel3D("system", system);
 
 	// Run the Engine
 	engine->Run();
