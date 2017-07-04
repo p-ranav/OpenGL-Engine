@@ -110,7 +110,7 @@ void Rendering::Models::SolarSystem::Update() {
 
 	const float earth_rotation_rate = 5.0f;
 	const float moon_rotation_rate = 12.5f;
-	const float sun_rotation_rate = 20.0f;
+	const float sun_rotation_rate = 2.0f;
 
 	earth_rotation_ += earth_rotation_rate * delta_time;
 	earth_rotation_ = fmod(earth_rotation_, 360.0f);
@@ -131,14 +131,16 @@ void Rendering::Models::SolarSystem::Draw(Managers::CameraManager* camera) {
 	GLuint earth_shader_program = Managers::ShaderManager::GetShader("earth_shader");
 
 	glBindVertexArray(vao);
+	
+	glBindTexture(GL_TEXTURE_2D, this->GetTexture("sun"));
 	glUseProgram(sun_shader_program);
 
 	// Drawing the Sun
-	glm::mat4 modelMatrix = glm::rotate(glm::radians(sun_rotation_), glm::vec3(0, -1, 0)) * glm::translate(glm::vec3(40, 0, 0));
+	glm::mat4 modelMatrix = glm::rotate(glm::radians(sun_rotation_), glm::vec3(0, -1, 0)) * glm::translate(glm::vec3(778, 0, 0))
+		* glm::scale(glm::vec3(100.756f));
 	glm::mat4 mvp = camera->GetProjectionMatrix() * camera->GetViewMatrix() * modelMatrix;
 	GLuint uniformMVP = glGetUniformLocation(sun_shader_program, "MVP");
 	glUniformMatrix4fv(uniformMVP, 1, GL_FALSE, glm::value_ptr(mvp));
-	glUniform4fv(glGetUniformLocation(sun_shader_program, "color"), 1, glm::value_ptr(white));
 	glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(indices.size()), GL_UNSIGNED_INT, BUFFER_OFFSET(0));
 
 	// Drawing the Earth

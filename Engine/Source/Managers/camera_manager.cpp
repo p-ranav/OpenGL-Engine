@@ -111,6 +111,7 @@ int Managers::CameraManager::KEY_S = 0;
 int Managers::CameraManager::KEY_D = 0;
 int Managers::CameraManager::KEY_Q = 0;
 int Managers::CameraManager::KEY_E = 0;
+int Managers::CameraManager::KEY_SHIFT = 0;
 glm::ivec2 Managers::CameraManager::MOUSE_POSITION = glm::ivec2();
 glm::quat Managers::CameraManager::MOUSE_ROTATION_X = glm::quat();
 glm::quat Managers::CameraManager::MOUSE_ROTATION_Y = glm::quat();
@@ -152,6 +153,8 @@ void Managers::CameraManager::KeyPressCallback(unsigned char c, int x, int y) {
 		break;
 	}
 	float translation_speed = 0.1f;
+	if (KEY_SHIFT == 1)
+		translation_speed = 0.5f;
 	CAMERA_TRANSLATION = glm::vec3(KEY_D - KEY_A, KEY_Q - KEY_E, KEY_S - KEY_W) * translation_speed;
 }
 
@@ -187,6 +190,8 @@ void Managers::CameraManager::KeyReleaseCallback(unsigned char c, int x, int y) 
 		break;
 	}
 	float translation_speed = 0.1f;
+	if (KEY_SHIFT == 1)
+		translation_speed = 0.5f;
 	CAMERA_TRANSLATION = glm::vec3(KEY_D - KEY_A, KEY_Q - KEY_E, KEY_S - KEY_W) * translation_speed;
 }
 
@@ -215,5 +220,33 @@ void Managers::CameraManager::MouseMoveCallback(int x, int y) {
 	else {
 		MOUSE_ROTATION_X = glm::vec3();
 		MOUSE_ROTATION_Y = glm::vec3();
+	}
+}
+
+void Managers::CameraManager::SpecialKeyPressCallback(int key, int x, int y)
+{
+	switch (key)
+	{
+	case GLUT_KEY_SHIFT_L:
+	case GLUT_KEY_SHIFT_R:
+	{
+		std::cout << "SHIFT KEY PRESSED!" << std::endl;
+		KEY_SHIFT = 1;
+	}
+	break;
+	}
+}
+
+void Managers::CameraManager::SpecialKeyReleaseCallback(int key, int x, int y)
+{
+	switch (key)
+	{
+	case GLUT_KEY_SHIFT_L:
+	case GLUT_KEY_SHIFT_R:
+	{
+		std::cout << "SHIFT KEY RELEASED!" << std::endl;
+		KEY_SHIFT = 0;
+	}
+	break;
 	}
 }

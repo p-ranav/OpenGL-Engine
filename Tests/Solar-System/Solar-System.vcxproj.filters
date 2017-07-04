@@ -10,6 +10,9 @@
     <Filter Include="Shaders">
       <UniqueIdentifier>{1550ce37-ab49-497a-b444-1dcfdff3e606}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Utilities">
+      <UniqueIdentifier>{e0cd3ba9-17e8-473a-96c2-14de6402c985}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Rendering\Models\solar_system.cpp">
@@ -26,6 +29,12 @@
     </ClInclude>
     <ClInclude Include="Source\Rendering\Models\skybox.h">
       <Filter>Rendering\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utilities\stb_image.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utilities\utilities.h">
+      <Filter>Utilities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

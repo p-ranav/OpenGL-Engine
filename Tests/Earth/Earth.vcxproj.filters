@@ -24,6 +24,9 @@
     <Filter Include="Shaders">
       <UniqueIdentifier>{1e03353d-831f-46d7-a793-4a68ec818c66}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Utilities">
+      <UniqueIdentifier>{ad974c89-706c-4282-9627-9a6a985beace}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Rendering\Models\earth.cpp">
@@ -40,6 +43,9 @@
     </ClInclude>
     <ClInclude Include="Source\Rendering\Models\skybox.h">
       <Filter>Rendering\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utilities\utilities.h">
+      <Filter>Utilities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

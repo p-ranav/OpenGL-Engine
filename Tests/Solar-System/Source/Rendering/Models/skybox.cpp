@@ -29,40 +29,40 @@ void Rendering::Models::Skybox::Create() {
 		20, 21, 22, 20, 22, 23 };
 
 	// Front Face Vertices
-	vertices.push_back(glm::vec3(-50.0, -50.0, 50.0));
-	vertices.push_back(glm::vec3(50.0, -50.0, 50.0));
-	vertices.push_back(glm::vec3(50.0, 50.0, 50.0));
-	vertices.push_back(glm::vec3(-50.0, 50.0, 50.0));
+	vertices.push_back(glm::vec3(-1500.0, -1500.0, 1500.0));
+	vertices.push_back(glm::vec3(1500.0, -1500.0, 1500.0));
+	vertices.push_back(glm::vec3(1500.0, 1500.0, 1500.0));
+	vertices.push_back(glm::vec3(-1500.0, 1500.0, 1500.0));
 
 	// Right Face Vertices 
-	vertices.push_back(glm::vec3(50.0, 50.0, 50.0));
-	vertices.push_back(glm::vec3(50.0, 50.0, -50.0));
-	vertices.push_back(glm::vec3(50.0, -50.0, -50.0));
-	vertices.push_back(glm::vec3(50.0, -50.0, 50.0));
+	vertices.push_back(glm::vec3(1500.0, 1500.0, 1500.0));
+	vertices.push_back(glm::vec3(1500.0, 1500.0, -1500.0));
+	vertices.push_back(glm::vec3(1500.0, -1500.0, -1500.0));
+	vertices.push_back(glm::vec3(1500.0, -1500.0, 1500.0));
 
 	// Back Face Vertices 
-	vertices.push_back(glm::vec3(-50.0, -50.0, -50.0));
-	vertices.push_back(glm::vec3(50.0, -50.0, -50.0));
-	vertices.push_back(glm::vec3(50.0, 50.0, -50.0));
-	vertices.push_back(glm::vec3(-50.0, 50.0, -50.0));
+	vertices.push_back(glm::vec3(-1500.0, -1500.0, -1500.0));
+	vertices.push_back(glm::vec3(1500.0, -1500.0, -1500.0));
+	vertices.push_back(glm::vec3(1500.0, 1500.0, -1500.0));
+	vertices.push_back(glm::vec3(-1500.0, 1500.0, -1500.0));
 
 	// Left Face Vertices 
-	vertices.push_back(glm::vec3(-50.0, -50.0, -50.0));
-	vertices.push_back(glm::vec3(-50.0, -50.0, 50.0));
-	vertices.push_back(glm::vec3(-50.0, 50.0, 50.0));
-	vertices.push_back(glm::vec3(-50.0, 50.0, -50.0));
+	vertices.push_back(glm::vec3(-1500.0, -1500.0, -1500.0));
+	vertices.push_back(glm::vec3(-1500.0, -1500.0, 1500.0));
+	vertices.push_back(glm::vec3(-1500.0, 1500.0, 1500.0));
+	vertices.push_back(glm::vec3(-1500.0, 1500.0, -1500.0));
 
 	// Top Face Vertices 
-	vertices.push_back(glm::vec3(50.0, 50.0, 50.0));
-	vertices.push_back(glm::vec3(-50.0, 50.0, 50.0));
-	vertices.push_back(glm::vec3(-50.0, 50.0, -50.0));
-	vertices.push_back(glm::vec3(50.0, 50.0, -50.0));
+	vertices.push_back(glm::vec3(1500.0, 1500.0, 1500.0));
+	vertices.push_back(glm::vec3(-1500.0, 1500.0, 1500.0));
+	vertices.push_back(glm::vec3(-1500.0, 1500.0, -1500.0));
+	vertices.push_back(glm::vec3(1500.0, 1500.0, -1500.0));
 
 	// Bottom Face Vertices 
-	vertices.push_back(glm::vec3(-50.0, -50.0, -50.0));
-	vertices.push_back(glm::vec3(50.0, -50.0, -50.0));
-	vertices.push_back(glm::vec3(50.0, -50.0, 50.0));
-	vertices.push_back(glm::vec3(-50.0, -50.0, 50.0));
+	vertices.push_back(glm::vec3(-1500.0, -1500.0, -1500.0));
+	vertices.push_back(glm::vec3(1500.0, -1500.0, -1500.0));
+	vertices.push_back(glm::vec3(1500.0, -1500.0, 1500.0));
+	vertices.push_back(glm::vec3(-1500.0, -1500.0, 1500.0));
 
 	// Bind vbo
 	glGenBuffers(1, &vbo);
@@ -89,21 +89,18 @@ void Rendering::Models::Skybox::Create() {
 void Rendering::Models::Skybox::Update() {}
 
 // Draw skybox
-void Rendering::Models::Skybox::Draw(Managers::CameraManager* camera) {
-	glDepthMask(GL_FALSE);
+void Rendering::Models::Skybox::Draw(Managers::CameraManager* camera) 
+{
 	// Map shader variables
-	glUseProgram(program);
+	glUseProgram(program); 
 
 	glBindVertexArray(vao);
 	// Bind Texture
-	glBindTexture(GL_TEXTURE_CUBE_MAP, this->GetTexture("skybox_texture"));
+	glBindTexture(GL_TEXTURE_CUBE_MAP_SEAMLESS, this->GetTexture("skybox_texture"));
 
-	// This removes any translation, but keeps all 
-	// rotation transformations so the user can still look around the scene.
 	glm::mat4 view = glm::mat4(glm::mat3(camera->GetViewMatrix()));
 	glUniformMatrix4fv(glGetUniformLocation(program, "view"), 1, false, glm::value_ptr(view));
 	glUniformMatrix4fv(glGetUniformLocation(program, "projection"), 1, false, glm::value_ptr(camera->GetProjectionMatrix()));
-	
-	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
-	glDepthMask(GL_TRUE); 
+
+	glDrawElements(GL_TRIANGLE_STRIP, 36, GL_UNSIGNED_INT, 0);
 }

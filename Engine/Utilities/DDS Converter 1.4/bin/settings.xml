@@ -1,6 +1,6 @@
 <settings>
-  <SourceFolder>C:\Users\prana\Downloads\TO_DDS_TEST</SourceFolder>
-  <TargetFolder>C:\Users\prana\OneDrive\Documents\Visual Studio 2017\Projects\Engine\x64\Debug\Textures</TargetFolder>
+  <SourceFolder>C:\Users\prana\Downloads</SourceFolder>
+  <TargetFolder>C:\Users\prana\Downloads</TargetFolder>
   <Format>DXT5</Format>
   <Option0>Unchecked</Option0>
   <Option1>Checked</Option1>

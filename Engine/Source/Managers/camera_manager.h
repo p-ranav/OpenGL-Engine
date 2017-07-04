@@ -123,7 +123,7 @@ namespace Managers
 		/**
 		 * Static Variables keeping track of key presses
 		 */
-		static int KEY_W, KEY_A, KEY_S, KEY_D, KEY_Q, KEY_E;
+		static int KEY_W, KEY_A, KEY_S, KEY_D, KEY_Q, KEY_E, KEY_SHIFT;
 		static glm::vec3 CAMERA_TRANSLATION;
 
 		/**
@@ -161,6 +161,18 @@ namespace Managers
 		* @param y Y value of mouse posiiton
 		*/
 		static void MouseMoveCallback(int x, int y);
+
+		/**
+		 * Callback to track special key presses, e.g., SHIFT
+		 * @param key Pressed key
+		 */
+		static void SpecialKeyPressCallback(int key, int x, int y);
+
+		/**
+		* Callback to track special key releases, e.g., SHIFT
+		* @param key Released key
+		*/
+		static void SpecialKeyReleaseCallback(int key, int x, int y);
 
 		// Constants
 		static const glm::vec3 LOCAL_FORWARD;

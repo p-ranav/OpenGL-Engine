@@ -32,6 +32,7 @@
   <ItemGroup>
     <ClInclude Include="Source\Rendering\Models\earth.h" />
     <ClInclude Include="Source\Rendering\Models\skybox.h" />
+    <ClInclude Include="Source\Utilities\utilities.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

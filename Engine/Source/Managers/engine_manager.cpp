@@ -41,6 +41,8 @@ bool Managers::EngineManager::Init() {
 		glutKeyboardUpFunc(Managers::CameraManager::KeyReleaseCallback);
 		glutMouseFunc(Managers::CameraManager::MousePressCallback);
 		glutMotionFunc(Managers::CameraManager::MouseMoveCallback);
+		glutSpecialFunc(Managers::CameraManager::SpecialKeyPressCallback);
+		glutSpecialUpFunc(Managers::CameraManager::SpecialKeyReleaseCallback);
 	}
 	else
 		return false;

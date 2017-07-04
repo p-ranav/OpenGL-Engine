@@ -127,6 +127,8 @@ xcopy /Y "$(ProjectDir)Source\Textures\*" "$(TargetDir)Textures\*"</Command>
   <ItemGroup>
     <ClInclude Include="Source\Rendering\Models\skybox.h" />
     <ClInclude Include="Source\Rendering\Models\solar_system.h" />
+    <ClInclude Include="Source\Utilities\stb_image.h" />
+    <ClInclude Include="Source\Utilities\utilities.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Source\Shaders\earth_fragment_shader.glsl" />
