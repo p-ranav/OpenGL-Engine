@@ -19,17 +19,7 @@ The following libraries are already incorporated in Engine\Dependencies\.
 * [SOIL2](https://bitbucket.org/SpartanJ/soil2)
 * [Spdlog C++ Logging Library](https://github.com/gabime/spdlog)
 
-## Tests
-
-### Rotating Cube
-
-* BMP Texture Loading + Rotation
-
-![Alt text](Tests/Cube/Screenshots/01.png?raw=true "Rotating Cube")
-
-### Icosahedron Subdivision
-
-![Alt text](Tests/Sphere/Screenshots/05.png?raw=true "Icosphere")
+## Scenes
 
 ### Earth
 
