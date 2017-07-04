@@ -43,7 +43,7 @@ The following libraries are already incorporated in Engine\Dependencies\.
 * DDS textures for the planets and moons
 * Emissive + Ambient + Diffuse Lighting
 * Cube Map for Milky Way Skybox
-* Planet Rotation & Revolution
+* Planet Rotation & Revolution 
 
 ![Alt text](Tests/Solar-System/Screenshots/01.png?raw=true "Earth")
 
