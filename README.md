@@ -21,7 +21,9 @@ The following libraries are already incorporated in Engine\Dependencies\.
 
 ## Tests
 
-### Rotating Cube - BMP Texture Loading + Rotation
+### Rotating Cube
+
+* BMP Texture Loading + Rotation
 
 ![Alt text](Tests/Cube/Screenshots/01.png?raw=true "Rotating Cube")
 
@@ -29,7 +31,9 @@ The following libraries are already incorporated in Engine\Dependencies\.
 
 ![Alt text](Tests/Sphere/Screenshots/05.png?raw=true "Icosphere")
 
-# Earth - DDS Texture + Lighting + Cubemap Skybox
+# Earth
+
+* DDS Texture Loading + Lighting + Cubemap Skybox
 
 ![Alt text](Tests/Earth/Screenshots/01.png?raw=true "Earth")
 
