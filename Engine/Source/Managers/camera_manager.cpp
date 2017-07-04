@@ -154,7 +154,7 @@ void Managers::CameraManager::KeyPressCallback(unsigned char c, int x, int y) {
 	}
 	float translation_speed = 0.1f;
 	if (KEY_SHIFT == 1)
-		translation_speed = 0.5f;
+		translation_speed = 2.0f;
 	CAMERA_TRANSLATION = glm::vec3(KEY_D - KEY_A, KEY_Q - KEY_E, KEY_S - KEY_W) * translation_speed;
 }
 
@@ -191,7 +191,7 @@ void Managers::CameraManager::KeyReleaseCallback(unsigned char c, int x, int y) 
 	}
 	float translation_speed = 0.1f;
 	if (KEY_SHIFT == 1)
-		translation_speed = 0.5f;
+		translation_speed = 2.0f;
 	CAMERA_TRANSLATION = glm::vec3(KEY_D - KEY_A, KEY_Q - KEY_E, KEY_S - KEY_W) * translation_speed;
 }
 

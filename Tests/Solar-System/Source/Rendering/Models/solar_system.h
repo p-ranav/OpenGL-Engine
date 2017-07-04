@@ -40,6 +40,14 @@ namespace Rendering
 			virtual void Update() override final;
 
 		private:
+
+			/**
+			 * Internal Helper to Draw a Planet
+			 */
+			void DrawPlanet(GLuint shader_program, std::string planet_texture, 
+				Managers::CameraManager* camera, int days_in_year, float distance_from_sun, 
+				float planet_size, float planet_rotation);
+
 			/* List of vertices in the icosphere */
 			std::vector<VertexFormat> vertices;
 
@@ -55,11 +63,21 @@ namespace Rendering
 			/* Texture coordinates */
 			std::vector<glm::vec2> texture_coordinates_;
 
-			/* Rotation Parameters */
-			float sun_rotation_, earth_rotation_, moon_rotation_;
-
 			/* Clock ticks for rotation */
 			std::clock_t current_ticks_, previous_ticks_;
+
+			/* Rotation Parameters */
+			float sun_rotation_;
+
+			/* Mercury Parameters - Day Counter + Rotation and Current Position */
+			float mercury_rotation_, venus_rotation_, mars_rotation_, jupiter_rotation_,
+				saturn_rotation_, uranus_rotation_, neptune_rotation_;
+
+			/* Earth Parameters - Day Counter + Rotation and Current Position */
+			float earth_rotation_, earth_day_count_, earth_position_x_, earth_position_y_;
+
+			/* Moon Parameters - Day Counter + Rotation and Current Position */
+			float moon_rotation_, moon_day_count_, moon_position_x_, moon_position_y_;
 		};
 	}
 }

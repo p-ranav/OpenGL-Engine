@@ -42,26 +42,22 @@ int main(int argc, char **argv)
 	// Create the Earth and set its shader program
 	Rendering::Models::SolarSystem* system = new Rendering::Models::SolarSystem();
 
-	GLuint sun_texture = Rendering::Utilities::LoadDDSTexture("Textures\\Sun.dds");
-	system->SetTexture("sun", sun_texture);
+	std::map<std::string, std::string> textures = {
+		std::make_pair("sun", "Textures\\Sun.dds"),
+		std::make_pair("mercury", "Textures\\Mercury.dds"),
+		std::make_pair("venus", "Textures\\Venus.dds"),
+		std::make_pair("earth", "Textures\\Earth.dds"),
+		std::make_pair("moon", "Textures\\Moon.dds"),
+		std::make_pair("mars", "Textures\\Mars.dds"),
+		std::make_pair("jupiter", "Textures\\Jupiter.dds"),
+		std::make_pair("saturn", "Textures\\Saturn.dds"),
+		std::make_pair("uranus", "Textures\\Uranus.dds"),
+		std::make_pair("neptune", "Textures\\Neptune.dds"),
+	};
 
-	GLuint mercury_texture = Rendering::Utilities::LoadDDSTexture("Textures\\Mercury.dds");
-	system->SetTexture("mercury", mercury_texture);
-
-	GLuint venus_texture = Rendering::Utilities::LoadDDSTexture("Textures\\Venus.dds");
-	system->SetTexture("venus", venus_texture);
-
-	GLuint earth_texture = Rendering::Utilities::LoadDDSTexture("Textures\\Earth.dds");
-	system->SetTexture("earth", earth_texture);
-
-	GLuint moon_texture = Rendering::Utilities::LoadDDSTexture("Textures\\Moon.dds");
-	system->SetTexture("moon", moon_texture);
-
-	GLuint mars_texture = Rendering::Utilities::LoadDDSTexture("Textures\\Mars.dds");
-	system->SetTexture("mars", mars_texture);
-
-	GLuint jupiter_texture = Rendering::Utilities::LoadDDSTexture("Textures\\Jupiter.dds");
-	system->SetTexture("jupiter", jupiter_texture);
+	// Load and Set Textures from Textures Map
+	for (auto const& texture : textures)
+		system->SetTexture(texture.first, Rendering::Utilities::LoadDDSTexture(texture.second));
 
 	// Set the Earth's Program
 	system->SetProgram(engine->GetShaderManager()->GetShader("earth_shader"));
