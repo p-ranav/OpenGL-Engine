@@ -31,13 +31,13 @@ The following libraries are already incorporated in Engine\Dependencies\.
 
 ![Alt text](Tests/Sphere/Screenshots/05.png?raw=true "Icosphere")
 
-# Earth
+### Earth
 
 * DDS Texture Loading + Lighting + Cubemap Skybox
 
 ![Alt text](Tests/Earth/Screenshots/01.png?raw=true "Earth")
 
-# Solar System
+### Solar System
 
 * Multiple icospheres for the celestial bodies
 * Loads DDS textures for the planets and moons
