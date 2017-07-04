@@ -43,4 +43,4 @@ The following libraries are already incorporated in Engine\Dependencies\.
 
 ![Alt text](Tests/Solar-System/Screenshots/01.png?raw=true "Earth")
 
-![Alt text](Tests/Solar-System/Screenshots/02.png?raw=true "Mars")
+![Alt text](Tests/Solar-System/Screenshots/02.png?raw=true "System")

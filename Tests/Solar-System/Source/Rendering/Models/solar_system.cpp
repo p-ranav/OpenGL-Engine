@@ -30,9 +30,10 @@
 // Constants used in color/lighting shaders
 const glm::vec4 white(1);
 const glm::vec4 black(0);
-const glm::vec4 ambient(0.1f, 0.1f, 0.1f, 1.0f);
+const glm::vec4 ambient(0.05f, 0.05f, 0.05f, 1.0f);
 
-void Rendering::Models::SolarSystem::Create(float radius, float slices, float stacks) {
+void Rendering::Models::SolarSystem::Create(float radius, float slices, float stacks) 
+{
 
 	// Prepare vertices, normal and texture coordinates
 	for (int i = 0; i <= stacks; ++i) {
@@ -281,13 +282,13 @@ void Rendering::Models::SolarSystem::DrawPlanet(GLuint shader_program, std::stri
 
 	// Model View Projection Matrix
 	static int day_count = 0;
-	if (day_count > days_in_year * 500) // Mercury Year is 88 days
+	if (day_count > days_in_year * 500)
 		day_count = 0;
 	else
 		day_count++;
 
 	float position_x = -distance_from_sun * cos(day_count * glm::radians(planet_rotation));
-	float position_y = distance_from_sun * sin(day_count * glm::radians(planet_rotation));
+		float position_y = distance_from_sun * sin(day_count * glm::radians(planet_rotation));
 	glm::mat4 modelMatrix =
 		glm::translate(glm::vec3(position_x, 0.0, position_y)) * // Update Mercury Position - Revolution around Sun
 		glm::rotate(glm::radians(planet_rotation), glm::vec3(0.0, 23.0, 0.0f)) * // Update Mercury's Rotation
@@ -300,7 +301,7 @@ void Rendering::Models::SolarSystem::DrawPlanet(GLuint shader_program, std::stri
 	glUniform4fv(glGetUniformLocation(shader_program, "material_emissive"), 1, glm::value_ptr(black));
 	glUniform4fv(glGetUniformLocation(shader_program, "material_diffuse"), 1, glm::value_ptr(white));
 	glUniform4fv(glGetUniformLocation(shader_program, "material_specular"), 1, glm::value_ptr(white));
-	glUniform1f(glGetUniformLocation(shader_program, "material_shininess"), 5.0f);
+	glUniform1f(glGetUniformLocation(shader_program, "material_shininess"), 2.0f);
 
 	glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(indices.size()), GL_UNSIGNED_INT, BUFFER_OFFSET(0));
 }

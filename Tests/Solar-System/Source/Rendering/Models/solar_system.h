@@ -14,7 +14,7 @@ namespace Rendering
 	namespace Models
 	{
 		/**
-		* Solar System (well... the Earth-Sun-Moon System)
+		* Solar System
 		*/
 		class SolarSystem : public Model
 		{
@@ -69,7 +69,7 @@ namespace Rendering
 			/* Rotation Parameters */
 			float sun_rotation_;
 
-			/* Mercury Parameters - Day Counter + Rotation and Current Position */
+			/* Planet Parameters - Day Counter + Rotation and Current Position */
 			float mercury_rotation_, venus_rotation_, mars_rotation_, jupiter_rotation_,
 				saturn_rotation_, uranus_rotation_, neptune_rotation_;
 

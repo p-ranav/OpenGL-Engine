@@ -13,7 +13,7 @@ int main(int argc, char **argv)
 	engine->Init();
 
 	// Setup camera's initial position
-	engine->GetCameraManager()->SetPosition(glm::vec3(0, 0, 75));
+	engine->GetCameraManager()->SetPosition(glm::vec3(0, 0, 300));
 
 	// Setup Earth's Vertex and Fragment Shaders
 	engine->GetShaderManager()->CreateProgram("earth_shader", "Shaders\\earth_vertex_shader.glsl", "Shaders\\earth_fragment_shader.glsl");
