@@ -1,7 +1,7 @@
-# Earth-Moon-Sun System
+# Solar System
 
-* Renders Solid Sphere like in the Sphere Test
-* Loads DDS textures for Earth and Moon
+* Renders Planets as solid spheres like in the Sphere Test
+* Loads DDS textures for Planets and Moons
 * Implements Emissive + Ambient + Diffuse + Specular Lighting
 * Cube Map for Milky Way Skybox
 
