@@ -27,7 +27,7 @@ The following libraries are already incorporated in Engine\Dependencies\.
 
 ### Icosahedron Subdivision
 
-![Alt text](Tests/Sphere/Screenshots/03.png?raw=true "Sphere")
+![Alt text](Tests/Sphere/Screenshots/05.png?raw=true "Sphere")
 
 ### Earth
 
