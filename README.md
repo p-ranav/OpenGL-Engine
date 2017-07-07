@@ -21,6 +21,14 @@ The following libraries are already incorporated in Engine\Dependencies\.
 
 ## Scenes
 
+### Rotating Cube
+
+![Alt text](Tests/Cube/Screenshots/01.png?raw=true "Cube")
+
+### Icosahedron Subdivision
+
+![Alt text](Tests/Sphere/Screenshots/01.png?raw=true "Sphere")
+
 ### Earth
 
 * DDS Texture Loading + Lighting + Cubemap Skybox
